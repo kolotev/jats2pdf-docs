@@ -1,0 +1,15 @@
+digraph {
+  subgraph cluster_deposit_item_file_state_diagram {
+    graph [label="Items.state"]
+    rankdir=TB
+    size=" 8,11 " // size of output page in inches
+    node [shape = circle style = filled fillcolor = black fontcolor = white]
+    START [label = "" shape = point]
+    END [label = "" shape = doublecircle]
+    node [shape = ellipse style=filled fillcolor = " #D2B48C " fontcolor = black]
+    edge [fontcolor = " #777777 " color = " #be9f78 " fontsize = 12 ]
+    START -> WAITING_FOR_UPLOAD -> READY_FOR_PROCESSING -> EXPIRED -> END 
+    WAITING_FOR_UPLOAD -> EXPIRED
+    EXPIRED -> EXPIRED
+  }
+}

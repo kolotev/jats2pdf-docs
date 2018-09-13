@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Andrey Kolotev">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Introduction - JATS2PDF</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Introduction";
+    var mkdocs_page_input_path = "0README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/json.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> JATS2PDF</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="index.html">Overview</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="0README.html">Introduction</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#introduction">Introduction</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#first-component">First component</a></li>
+        
+            <li><a class="toctree-l3" href="#second-component">Second component</a></li>
+        
+            <li><a class="toctree-l3" href="#third-component">Third component</a></li>
+        
+            <li><a class="toctree-l3" href="#jats2pdf-ws-web-service">jats2pdf-ws (web service)</a></li>
+        
+            <li><a class="toctree-l3" href="#jats2pdf-bo-back-office">jats2pdf-bo (back office)</a></li>
+        
+            <li><a class="toctree-l3" href="#references-to-ahf-related-scriptstmsesionstmtasks">References to AHF related scripts/TMsesions/TMtasks</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="1README-API.html">API description</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="2README-API-USE-EXAMPLES.html">API use examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="3BACKOFFICE.html">Backoffice</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">JATS2PDF</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="introduction">Introduction</h2>
+<p>This a system was developed to provided RESTful API for manuscript submission systems around  Antenna House Formatter application, which is used for converting manuscript XML tagged according to <a href="https://jats.nlm.nih.gov/publishing/">JATS</a> to PDF. The system consist of 3 components, 2 of them are part of this development.</p>
+<h3 id="first-component">First component</h3>
+<p>It is a RESTful web service (aka jats2pdf-ws front-end), 
+which consumers are directly communicating with. </p>
+<h3 id="second-component">Second component</h3>
+<p>It is a back-office (aka jats2pdf-bo) which implements a bussiness logic for life cycle of deposits and serves as a harness around 3rd component.</p>
+<h3 id="third-component">Third component</h3>
+<p>It is out of scope of this document.</p>
+<h3 id="jats2pdf-ws-web-service">jats2pdf-ws (web service)</h3>
+<p>This web service provides a RESTful API around Antenna House Formatter (AHF) processing. With this API user should be able to submit manuscript in XML format tagged with one of supported version of NLM and JATS DTDs accompanied with images for figures and retrieve the result of the conversion of that XML along with images as a PDF document. Currently PDF document is produced with help of Antenna House Formatter and with PMC built XSLT and XSLT-FO stylesheets.</p>
+<p>This web service will be available from multiple NCBI data centers (Bethesda, Sterling) and performing role of a "gatekeeper" between the users, Amazon S3 storage and TM tasks (residing on PMC internal production servers like ipmc-prod, xslt2), the later ones are performing actual transformation of deposited XML manuscripts and images into PDF document.</p>
+<p>This web service will accept new "deposits" in the form of registered one (or many files) later uploaded into NCBI's Amazon S3 storage bucket with authorized/signed URLs or one (or many) URI/URLs of files (residing at the location(s) chosen by user) available for download from internal production PMC servers.</p>
+<p>The audience/users for this web service are manuscript submission systems at NCBI, UK and possibly PubMed Central ingest system.</p>
+<p>Initially this web service will not be protected by any form of authentication or authorization.</p>
+<p>Files uploaded by users to Amazon S3 storage will have an expiration period (to be defined later) as well as pdf files (result of the conversion).</p>
+<p>Amazon S3 storage bucket will be protected from abuse by use of presigned URLs for deposits and retrievals. Presinged URLs will be generated by this web service.</p>
+<p>The implementation of presigned URLs within Web Service require the access to Amazon AWS credentials (ACCESS_KEY and SECRET_KEY). </p>
+<h3 id="jats2pdf-bo-back-office">jats2pdf-bo (back office)</h3>
+<p>A package of scripts and applications for manuscript to pdf convertion. It interacts with consumer data through above web service and deposits result (PDF file) to Amazon S3 storage and updates deposit information with 1st component (above web service).</p>
+<h3 id="references-to-ahf-related-scriptstmsesionstmtasks">References to AHF related scripts/TMsesions/TMtasks</h3>
+<p>The main wrapper around AHF is pdfbuild (application written by Sergey Koshelkov and currently maintained by Valeriy Reshetnikov). It is used in the following TM task <a href="http://ipmc-prod.be-md.ncbi.nlm.nih.gov:5701/internal/utils/tm/index.fcgi?s=taskcls&amp;taskclsid=95">nihms_pdf</a> and in the following session <a href="http://ipmc-prod.be-md.ncbi.nlm.nih.gov:5701/internal/utils/tm/index.fcgi?s=sesscls&amp;sessclsid=43">ingest_manuscript</a>. Here is an <a href="http://ipmc-prod.be-md.ncbi.nlm.nih.gov:5701/internal/utils/tm/index.fcgi?s=monitor&amp;sel=1&amp;taskid=49424293">example</a> of executing "ingest_manuscript" session.</p>
+<p>There is another task <a href="http://ipmc-prod.be-md.ncbi.nlm.nih.gov:5701/internal/utils/tm/index.fcgi?s=taskcls&amp;taskclsid=160">pdfbuild</a> in TM, which is probably rarely used or even not used at all anymore. Currently the following tasks refer to corresponding scripts/applications:</p>
+<table>
+<thead>
+<tr>
+<th align="left">TM task</th>
+<th align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th align="left">script/app location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">pdfbuild</td>
+<td align="center"></td>
+<td align="left"><code>/pmc/bin/pdfbuild</code></td>
+</tr>
+<tr>
+<td align="left">nihms_pdf</td>
+<td align="center"></td>
+<td align="left"><code>/pmc/Work/manuscripts/pnihms_pdf.pl</code></td>
+</tr>
+</tbody>
+</table>
+<h6 id="master-ticket-in-jira">Master ticket in JIRA:</h6>
+<p><a href="https://jira.ncbi.nlm.nih.gov/browse/PMC-31849">PMC-31849</a></p>
+<h6 id="api-descriptions">API descriptions:</h6>
+<p>See README-API.md</p>
+<h6 id="api-use-examples">API use Examples:</h6>
+<p>See README-API-use.md</p>
+<h6 id="bitbucket-repository">Bitbucket repository:</h6>
+<p><a href="https://bitbucket.ncbi.nlm.nih.gov/projects/PMC/repos/jats2pdf-ws">jats2pdf-ws</a> - RESTful API web service.</p>
+<h6 id="notes">Notes</h6>
+<p>For back-office scripts see jats2pdf repository's folder <a href="https://bitbucket.be-md.ncbi.nlm.nih.gov/projects/PMC/repos/jats2pdf/browse/src/project/api/backoffice/">src/project/api/backoffice/</a>.</p>
+<ul>
+<li><a href="https://confluence.ncbi.nlm.nih.gov/x/vQaPAg">About Amazon Web Services in NCBI</a></li>
+<li><a href="https://confluence.ncbi.nlm.nih.gov/x/fgqdAg">AWS API/SDK/CLI access with with your 
+   NCBI credentials</a></li>
+<li><a href="https://confluence.ncbi.nlm.nih.gov/x/noI1Bg">Getting access to AWS "Experimental Research Environment" 
+   NCBI-AWS-RESEARCH</a></li>
+<li><a href="https://jira.ncbi.nlm.nih.gov/browse/SYS-278694">JIRA Request for Amazon S3 keys in NCBI-DEV 
+   environment</a></li>
+</ul>
+<p>IAM manages various kinds of authentication, for both users and for software services that may need to authenticate with AWS, including:</p>
+<p>Access keys, which you may use with command-line tools. These are two strings, one the “id”, which is an upper-case alphabetic string of the form 'AXXXXXXXXXXXXXXXXXXX', and the other is the secret, which is a 40-character mixed-case base64-style string. These are often set up for services, not just users.</p>
+<p>Access keys that start with AKIA are normal keys. Access keys that start with ASIA are session/temporary keys from STS, and will require an additional "SessionToken" parameter to be sent along with the id and secret.</p>
+<h6 id="glossary">Glossary</h6>
+<ul>
+<li>TM<br />
+    Task Manager.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="1README-API.html" class="btn btn-neutral float-right" title="API description">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://bitbucket.ncbi.nlm.nih.gov/projects/PMC/repos/jats2pdf/browse/" class="icon icon-bitbucket" style="float: left; color: #fcfcfc"> BitBucket</a>
+      
+      
+        <span><a href="index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="1README-API.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>

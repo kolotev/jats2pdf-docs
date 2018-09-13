@@ -1,0 +1,30 @@
+digraph {
+  subgraph cluster_pdf_build_deposit_state_diagram {
+    graph [label="Deposit.state"]
+    rankdir=TB
+    size=" 8,11 " // size of output page in inches
+    node [shape = circle style = filled fillcolor = black fontcolor = white]
+    START [label = "" shape = point]
+    END [label = "" shape = doublecircle]
+    node [shape = ellipse style=filled fillcolor = " #D2B48C " fontcolor = black]
+    edge [fontcolor = " #777777 " color = " #be9f78 " fontsize = 12 ]
+    START -> WAITING_FOR_ITEMS 
+    WAITING_FOR_ITEMS -> COMMITED [label = "commit"]
+    COMMITED -> WAITING_FOR_RESULT [label = "started"]
+    WAITING_FOR_RESULT -> RESULT_IS_READY [label = "succeeded"]
+    RESULT_IS_READY -> EXPIRED [label = "expire"]
+    EXPIRED -> END 
+    
+    WAITING_FOR_RESULT -> NO_RESULT [label = "no_result"] 
+    NO_RESULT -> EXPIRED [label = "expire"]
+    WAITING_FOR_ITEMS -> EXPIRED [label = "expire"]
+    COMMITED -> EXPIRED [label = "expire"]
+    WAITING_FOR_RESULT -> EXPIRED [label = "expire"]
+    NO_RESULT -> COMMITED [label = "retry" ]
+    RESULT_IS_READY  -> COMMITED [label = "retry" ]
+
+    NO_RESULT -> WAITING_FOR_ITEMS [label = "reopen" ]
+    RESULT_IS_READY -> WAITING_FOR_ITEMS [label = "reopen" ]
+    COMMITED -> WAITING_FOR_ITEMS [label = "reopen"]
+  }
+}

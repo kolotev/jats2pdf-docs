@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Andrey Kolotev">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>API description - JATS2PDF</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "API description";
+    var mkdocs_page_input_path = "1README-API.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/json.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> JATS2PDF</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="index.html">Overview</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="0README.html">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="1README-API.html">API description</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#api-description">API description</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#definitions">Definitions</a></li>
+        
+            <li><a class="toctree-l3" href="#api-functionalities">API functionalities</a></li>
+        
+            <li><a class="toctree-l3" href="#api-specifications">API specifications</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="2README-API-USE-EXAMPLES.html">API use examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="3BACKOFFICE.html">Backoffice</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">JATS2PDF</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>API description</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="api-description">API description</h2>
+<h3 id="definitions">Definitions</h3>
+<ul>
+<li>
+<p><code>depositor</code> - consumer/user of this web service (could be retrieved from credentials [possibly user-name/login], when implemented later).</p>
+</li>
+<li>
+<p><code>deposit</code> - single manuscript XML file accompanied with figure images, equations where applicable. The deposit could be provided as a single archive file (in zip, tar, tar.gz or tgz formats) which includes an XML (manuscript) with all image files it depends on. Or as individual files.</p>
+</li>
+<li>
+<p><code>domain</code> - the name to be used in the context of manuscript branding and processes applied by the back-end service.</p>
+</li>
+<li>
+<p><code>item</code> - as an input to web service: an entity which represents a file (or/and URL) the depositor suppose to provide for this web service to be used in the conversion process of the <code>deposit</code> to PDF document.  When an <code>item</code> is a file, it has to be uploaded to Amazon S3 storage controlled by NCBI separatly. When an <code>item</code> is an URL starting with "http://", "https://" or "ftp://" sub-strings  then the web service must be able to retrieve a file behind that URL from depositor's storage resource. This property is optional at the time of creation of deposit, but needs to be supplied in a separate POST request(s) individually via following URI /deposits/{deposit_pk}/items/ or with <code>PUT</code>, <code>PATCH</code> request via URI /deposits/{deposit_pk} if item needs to be replaced or modified.</p>
+</li>
+<li>
+<p><code>deposit_pk</code> - the web service generated identifier of the deposit.</p>
+</li>
+<li>
+<p><code>item_pk</code> - the web service generated identifier of the item.</p>
+</li>
+</ul>
+<p><a name="api_functionalities"></a></p>
+<h3 id="api-functionalities">API functionalities</h3>
+<p><a name="depositors_aimed_api"></a></p>
+<h4 id="aimed-for-depositors">Aimed for depositors</h4>
+<ul>
+<li>Create a <code>deposit</code>.</li>
+<li>Read/View <code>deposit</code> state/details. </li>
+<li>Read/View collection of <code>deposits</code> states/details (with filters and sorting).</li>
+<li>Update/Replace a <code>deposit</code></li>
+<li>Update/Modify a <code>deposit</code></li>
+<li>
+<p>Delete a <code>deposit</code></p>
+</li>
+<li>
+<p>Create an <code>item</code>.</p>
+</li>
+<li>Read/View <code>item</code> state/details. </li>
+<li>Read/View collection of <code>items</code> for a given deposit (with filters and sorting).</li>
+<li>Update/Replace an <code>item</code></li>
+<li>Update/Modify an <code>item</code></li>
+<li>
+<p>Delete an <code>item</code></p>
+</li>
+<li>
+<p>Commit deposit for processing/conversion.</p>
+</li>
+<li>
+<p>Read/View <code>domain</code> details. </p>
+</li>
+<li>Read/View collection of <code>domains</code> (with filters and sorting).</li>
+</ul>
+<p><a name="be_aimed_api"></a></p>
+<h4 id="aimed-for-be-service">Aimed for BE service</h4>
+<ul>
+<li>Create a <code>domain</code>.</li>
+<li>Read/View <code>domain</code> state/details. </li>
+<li>Read/View collection of <code>domains</code> for a given deposit (with filters and sorting).</li>
+<li>Update/Replace a <code>domain</code></li>
+<li>Update/Modify a <code>domain</code></li>
+<li>
+<p>Delete a <code>domain</code></p>
+</li>
+<li>
+<p>Read/View <code>deposit</code> state/details. </p>
+</li>
+<li>Read/View collection of <code>deposits</code> states/details (with filters and sorting).</li>
+<li>
+<p>Update/Modify a <code>deposit</code>.</p>
+</li>
+<li>
+<p>Read/View <code>item</code> state/details. </p>
+</li>
+<li>Read/View collection of <code>items</code> for a given deposit (with filters and sorting).</li>
+<li>
+<p>Update/Modify an <code>item</code></p>
+</li>
+<li>
+<p>FIXME: check if you really need these:</p>
+<ul>
+<li>Create a <code>result</code>.</li>
+<li>Read/View <code>result</code> state/details. </li>
+<li>Read/View collection of <code>results</code> for a given deposit (with filters and sorting).</li>
+<li>Update/Replace a <code>result</code></li>
+<li>Update/Modify a <code>result</code></li>
+<li>Delete a <code>result</code></li>
+</ul>
+</li>
+</ul>
+<p>(jats2pdf-be)</p>
+<p><a name="api_specs"></a></p>
+<h3 id="api-specifications">API specifications</h3>
+<h4 id="uri-schema">URI schema</h4>
+<ul>
+<li>
+<p><code>deposit</code> collection - <code>/deposits/</code></p>
+</li>
+<li>
+<p>individual <code>deposit</code> - <code>/deposits/{deposit_pk}</code></p>
+</li>
+<li>
+<p><code>item</code> collection of a given <code>deposit</code> - <code>/deposits/{deposit_pk}/items/</code></p>
+</li>
+<li>
+<p>individual <code>item</code> - <code>/deposits/{deposit_pk}/items/{item_pk}</code></p>
+</li>
+<li>
+<p>FIXME: check if you really need these:</p>
+<ul>
+<li><code>result</code> collection of a given <code>deposit</code> - <code>/deposits/{deposit_pk}/results/</code></li>
+<li>
+<p>individual <code>result</code> - <code>/deposits/{deposit_pk}/results/{ruidX}</code></p>
+</li>
+<li>
+<p><code>domain</code> collection - <code>/domains/</code></p>
+</li>
+<li>
+<p>individual <code>domain</code> - <code>/domains/{domain_pk}</code></p>
+</li>
+<li>
+<p><code>depositor</code> collection - <code>/depositors/</code> </p>
+</li>
+<li>individual <code>depositor</code> - <code>/depositors/{depositor_pk}</code></li>
+</ul>
+</li>
+<li>
+<p>FIXME: list actions on <code>deposits</code> and <code>items</code></p>
+</li>
+</ul>
+<h4 id="properties-of-deposit">PROPERTIES of deposit</h4>
+<h5 id="deposit-as-response">deposit as response</h5>
+<pre><code class="JSON">{
+    &quot;deposit_uid&quot;: $string,
+    &quot;path&quot;: $string, 
+    &quot;depositor&quot;: $string,
+    &quot;domain&quot;: $string,
+    &quot;state&quot;: $string, // ENUM: [FIXME: values]
+    &quot;state_info&quot;: $string,
+    &quot;created&quot;: $string($date-time),
+    &quot;updated&quot;: $string($date-time)
+    &quot;items&quot;: [{}, ...] 
+}
+</code></pre>
+
+<h5 id="deposit-properties">deposit properties</h5>
+<ul>
+<li>
+<p><code>deposit_uid</code> - a deposit unique identifier.</p>
+</li>
+<li>
+<p><code>path</code> - a URI of the deposit.</p>
+</li>
+<li>
+<p><code>depositor</code> - see explanations in <a href="#definitions">Definitions</a> section.</p>
+</li>
+<li>
+<p><code>domain</code> - see explanations in <a href="#definitions">Definitions</a> section.</p>
+</li>
+<li>
+<p><code>state</code> - a machine-readable deposit state. FIXME: detail deposit states (create FSM diagram).</p>
+</li>
+<li>
+<p><code>state_info</code> - a human-readable deposit state. FIXME: human-readable string of the <code>deposit</code> state.</p>
+</li>
+<li>
+<p><code>created</code> - time of creation of the deposit.</p>
+</li>
+<li>
+<p><code>updated</code> - time of the last update of the deposit.</p>
+</li>
+<li>
+<p><code>items</code> - an array of deposit items, see explanations of item in <a href="#definitions">Definitions</a> section.</p>
+</li>
+</ul>
+<p>In this document you may see mnemonic value(s):</p>
+<h5 id="deposit-as-input">deposit as input</h5>
+<p>The following JSON snippet demonstrates the input  understood by web service.</p>
+<p>FIXME: add properties or action values to transition states of the deposit to be used by back-end service report progress of the processing.</p>
+<pre><code class="JSON">{
+    &quot;depositor&quot;: $string,
+    &quot;domain&quot;: $string,   
+    &quot;items&quot;: [{$item}, ..., {$item}], 
+    &quot;action&quot;: $string  // ENUM: [&quot;commit&quot;, &quot;retry&quot;]               
+}
+</code></pre>
+
+<ul>
+<li>
+<p><code>depositor</code> - an abbreviation of the depositor. Required at the time of creation (POST). Optional in all other circumstances.</p>
+</li>
+<li>
+<p><code>domain</code> - a required property of information of the "domain" the manuscript belongs to. Required at the time of creation (POST). Optional in all other circumstances.</p>
+</li>
+<li>
+<p><code>items</code> - an array of filenames OR URIs.</p>
+</li>
+<li>
+<p><code>action</code> - an optional property to be used to initiate an action for <code>deposit</code>. The following values are recognized: <code>commit</code>, <code>retry</code>. <code>commit</code> -  could be provided at the time of creation/replacement of the deposit (make sense if items are provided as URLs and could be downloaded by back-end service right after creation of  <code>deposit</code>) or it should be used separately with <code>PATCH</code> methods and with <code>/deposits/{deposit_pk}</code> URI location, see mode details in <a href="#update-modify-deposit">UPDATE/MODIFY deposit</a> section.</p>
+</li>
+</ul>
+<h4 id="properties-of-item">PROPERTIES of item</h4>
+<h5 id="item-as-response">item as response</h5>
+<pre><code class="JSON">    {
+        &quot;item_pk&quot;: $string, 
+        &quot;path&quot;: $string,
+        &quot;depositor&quot;: $string,
+        &quot;s3_put_url&quot;: $string,
+        &quot;s3_get_url&quot;: $string,
+        &quot;state&quot;: $string, // ENUM: [FIXME: values]
+        &quot;created&quot;: $string($date-time), 
+        &quot;updated&quot;: $string($date-time),
+        &quot;result&quot;: $boolean
+    },
+
+</code></pre>
+
+<h5 id="item-properties">item properties</h5>
+<ul>
+<li>
+<p><code>item_pk</code> - an item unique identifier.</p>
+</li>
+<li>
+<p><code>path</code> - a URI of the item, like the following URI  "/deposits/{deposit_pk}/items/{item_pk}",</p>
+</li>
+<li>
+<p><code>depositor</code> - an abbreviation of the depositor.</p>
+</li>
+<li>
+<p><code>s3_put_url</code> - property is applicable when depositor intention was to deposit file to Amazon S3 storage controlled by NCBI. The value of this property (URL) will be regenerated with new expiration time, every time, when depositor access a deposit with "deposit_pk" or item with "item_pk". It will not be present if depositor provided a retrievable URL. <code>puturl</code> value is suitable to be used with method PUT when the file suppose to be uploaded to Amazon S3 storage.</p>
+</li>
+<li>
+<p><code>s3_get_url</code> - populated with retrievable URL if it was provided by depositor or with signed URL if depositor uploaded a file to Amazon S3 storage. This URL is suitable to be used with method GET when the file is uploaded to Amazon S3 storage (<code>geturl</code> is needed for jats2pdf-be back-end service).</p>
+</li>
+<li>
+<p><code>errors</code> - a machine readable item state. FIXME: detail item states (create FSM diagram).</p>
+</li>
+<li>
+<p><code>created</code> - time of creation of the item. FIXME: provide details on the type/format/specs of date/time</p>
+</li>
+<li>
+<p><code>updated</code> - time of the last update of the item. FIXME: provide details on the type/format/specs of date/time</p>
+</li>
+<li>
+<p><code>result</code> - a boolean property, which indicates, that the item is the result of conversion.</p>
+</li>
+</ul>
+<h5 id="item-as-input">item as input</h5>
+<p>The following JSON snippet demonstrates the input  understood by web service.</p>
+<pre><code class="JSON">{
+    &quot;depositor&quot;: $string, 
+    &quot;item&quot;: $string,
+    &quot;item_size&quot;: $integer, // range constrain is [1 - 10,000,000] bytes  
+    &quot;item_md5&quot;: $string,
+    &quot;result&quot;: $boolean
+}
+</code></pre>
+
+<ul>
+<li>
+<p><code>depositor</code> - an abbreviation of the depositor.</p>
+</li>
+<li>
+<p><code>item</code> - see explanations in <a href="#definitions">Definitions</a> section.</p>
+</li>
+<li>
+<p><code>result</code> - a boolean property, which indicates, that the item is the result of the conversion. (optional property, which is suitable for back-end service to upload the result for depositor).</p>
+</li>
+<li>
+<p><code>item_size</code> - file size of an item</p>
+</li>
+<li>
+<p><code>item_md5</code> - md5 digest strings in hexadecimal format.</p>
+</li>
+</ul>
+<h4 id="create-deposit">CREATE deposit</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+    POST</code></li>
+<li>location URI 
+    <code>HTTP
+    /deposits/</code></li>
+<li>HTTP body - JSON string. See details in section <a href="#deposit-as-input">deposit as input</a></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(On successful creation)  <ul>
+<li>HTTP code<br />
+<code>HTTP
+    201 (Created)</code></li>
+<li>HTTP header
+    <code>HTTP
+    Location: /deposits/{deposit_pk}</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#deposit-as-response">PROPERTIES of deposit</a> section
+    <code>JSON
+        {...}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="read-deposit">READ deposit</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+        GET</code></li>
+<li>location URI 
+    <code>HTTP
+        /deposits/{deposit_pk}</code></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(if successful)  <ul>
+<li>HTTP code<br />
+<code>HTTP
+    200 (OK)</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#deposit-as-response">PROPERTIES of deposit</a> section
+    <code>JSON
+        {...}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="read-deposit-collection">READ deposit collection</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+        GET</code></li>
+<li>location URI 
+    <code>HTTP
+        /deposits/</code></li>
+<li>filters (as CGI params)
+    <code>HTTP
+        deposit_uid=...
+        state=...
+        depositor=...
+        domain=...</code></li>
+<li>order (as CGI param)
+    <code>HTTP
+        __orderby=...</code></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(if successful)<ul>
+<li>HTTP code<br />
+<code>HTTP
+    200 (OK)</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#deposit-as-response">PROPERTIES of deposit</a> section
+    <code>JSON
+    [         // zero deposits [],
+        {},   // one deposit
+        ...   // or more deposits if available.
+    ]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="updatereplace-deposit">UPDATE/REPLACE deposit</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+    PUT</code></li>
+<li>location URI 
+    <code>HTTP
+    /deposits/{deposit_pk}</code></li>
+<li>HTTP body - JSON string. See details in section <a href="#deposit-as-input">deposit as input</a></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(On successful creation)  <ul>
+<li>HTTP code<br />
+<code>HTTP
+    209 (OK)</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#deposit-as-input">PROPERTIES of deposit</a> section
+    <code>JSON
+    {...}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="updatemodify-deposit">UPDATE/MODIFY deposit</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+        PATCH</code></li>
+<li>location URI 
+    <code>HTTP
+        /deposits/{deposit_pk}</code></li>
+<li>HTTP body - JSON string. See details in section <a href="#deposit-as-input">deposit as input</a>
+    <code>JSON
+    {...}</code></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(if successful)  <ul>
+<li>HTTP code<br />
+<code>HTTP
+    200 (OK)</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#deposit-as-input">PROPERTIES of deposit</a> section
+    <code>JSON
+    {...}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="delete-deposit">DELETE deposit</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+        DELETE</code></li>
+<li>location URI 
+    <code>HTTP
+        /deposits/{deposit_pk}</code></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(if successful)  <ul>
+<li>HTTP code<br />
+<code>HTTP
+    200 (OK)</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#deposit-as-input">PROPERTIES of deposit</a> section
+    <code>JSON
+    {...}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="create-item">CREATE item</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+    POST</code></li>
+<li>location URI 
+    <code>HTTP
+    /deposits/{deposit_pk}/items/</code></li>
+<li>HTTP body - JSON string. See detail in section <a href="#item-as-input">item as input</a> </li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(On successful creation)  <ul>
+<li>HTTP code<br />
+<code>HTTP
+    201 (Created)</code></li>
+<li>HTTP header
+    <code>HTTP
+    Location: /deposits/{deposit_pk}/items/{item_pk}</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#item-as-response">item as response</a> section
+    <code>JSON
+    {...}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="read-item">READ item</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+        GET</code></li>
+<li>location URI 
+    <code>HTTP
+        /deposits/{deposit_pk}/items/{item_pk}</code></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(if successful)  <ul>
+<li>HTTP code<br />
+<code>HTTP
+    200 (OK)</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#item-as-input">PROPERTIES of item</a> section
+    <code>JSON
+    {...} // properties of the single item</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="read-item-collection">READ item collection</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+        GET</code></li>
+<li>location URI 
+    <code>HTTP
+        /deposits/{deposit_pk}/items/</code></li>
+<li>filters (as CGI params)
+    <code>HTTP
+        item_pk=...
+        state=...
+        depositor=...</code></li>
+<li>order (as CGI param)
+    <code>HTTP
+        __orderby=...</code></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(if successful)<ul>
+<li>HTTP code<br />
+<code>HTTP
+    200 (OK)</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#deposit-as-input">PROPERTIES of item</a> section
+    <code>JSON
+    [         // zero items [],
+        {},   // one item
+        ...   // or more items if available.
+    ]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="updatereplace-item">UPDATE/REPLACE item</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+    PUT</code></li>
+<li>location URI 
+    <code>HTTP
+    /deposits/{deposit_pk}/item/{item_pk}</code></li>
+<li>HTTP body - JSON string. See details in section <a href="#item-as-input">deposit as input</a></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(On successful creation)  <ul>
+<li>HTTP code<br />
+<code>HTTP
+    209 (OK)</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#item-as-input">PROPERTIES of deposit</a> section
+    <code>JSON
+    {...}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="updatemodify-item">UPDATE/MODIFY item</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+        PATCH</code></li>
+<li>location URI 
+    <code>HTTP
+        /deposits/{deposit_pk}/item/{item_pk}</code></li>
+<li>HTTP body - JSON string. See details in section <a href="#item-as-input">deposit as input</a>
+    <code>JSON
+    {...}</code></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(if successful)  <ul>
+<li>HTTP code<br />
+<code>HTTP
+    200 (OK)</code></li>
+<li>HTTP body is a JSON string. See details of deposit in <a href="#item-as-input">PROPERTIES of deposit</a> section
+    <code>JSON
+    {...}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="delete-item">DELETE item</h4>
+<ul>
+<li>
+<p>HTTP REQUEST  </p>
+<ul>
+<li>method<br />
+<code>HTTP
+        DELETE</code></li>
+<li>location URI 
+    <code>HTTP
+        /deposits/{deposit_pk}/items/{item_pk}</code></li>
+</ul>
+</li>
+<li>
+<p>HTTP RESPONSE  </p>
+<ul>
+<li>(if successful)  <ul>
+<li>HTTP code<br />
+<code>HTTP
+    200 (OK)</code></li>
+<li>HTTP body is a JSON string. See details of item in <a href="#item-as-input">PROPERTIES of item</a> section
+    <code>JSON
+    {...}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2README-API-USE-EXAMPLES.html" class="btn btn-neutral float-right" title="API use examples">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="0README.html" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://bitbucket.ncbi.nlm.nih.gov/projects/PMC/repos/jats2pdf/browse/" class="icon icon-bitbucket" style="float: left; color: #fcfcfc"> BitBucket</a>
+      
+      
+        <span><a href="0README.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="2README-API-USE-EXAMPLES.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
