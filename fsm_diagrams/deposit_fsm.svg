@@ -32,12 +32,12 @@
 <ellipse fill="black" stroke="black" cx="218" cy="-38" rx="18" ry="18"/>
 <ellipse fill="none" stroke="black" cx="218" cy="-38" rx="22" ry="22"/>
 </g>
-<!-- COMMITED -->
+<!-- COMMITTED -->
 <g id="node4" class="node"><title>COMMITED</title>
 <ellipse fill="#d2b48c" stroke="black" cx="223" cy="-374" rx="59.1941" ry="18"/>
 <text text-anchor="middle" x="223" y="-370.3" font-family="Times,serif" font-size="14.00">COMMITED</text>
 </g>
-<!-- WAITING_FOR_ITEMS&#45;&gt;COMMITED -->
+<!-- WAITING_FOR_ITEMS&#45;&gt;COMMITTED -->
 <g id="edge2" class="edge"><title>WAITING_FOR_ITEMS&#45;&gt;COMMITED</title>
 <path fill="none" stroke="#be9f78" d="M273.028,-441.906C269.205,-432.125 263.705,-419.875 257,-410 254.414,-406.191 251.394,-402.422 248.24,-398.848"/>
 <polygon fill="#be9f78" stroke="#be9f78" points="250.637,-396.288 241.24,-391.394 245.535,-401.08 250.637,-396.288"/>
@@ -59,19 +59,19 @@
 <ellipse fill="#d2b48c" stroke="black" cx="223" cy="-288" rx="108.31" ry="18"/>
 <text text-anchor="middle" x="223" y="-284.3" font-family="Times,serif" font-size="14.00">WAITING_FOR_RESULT</text>
 </g>
-<!-- COMMITED&#45;&gt;WAITING_FOR_RESULT -->
+<!-- COMMITTED&#45;&gt;WAITING_FOR_RESULT -->
 <g id="edge3" class="edge"><title>COMMITED&#45;&gt;WAITING_FOR_RESULT</title>
 <path fill="none" stroke="#be9f78" d="M223,-355.595C223,-344.257 223,-329.227 223,-316.315"/>
 <polygon fill="#be9f78" stroke="#be9f78" points="226.5,-316.095 223,-306.095 219.5,-316.095 226.5,-316.095"/>
 <text text-anchor="middle" x="238.5" y="-327.9" font-family="Times,serif" font-size="12.00" fill="#777777">started</text>
 </g>
-<!-- COMMITED&#45;&gt;EXPIRED -->
+<!-- COMMITTED&#45;&gt;EXPIRED -->
 <g id="edge10" class="edge"><title>COMMITED&#45;&gt;EXPIRED</title>
 <path fill="none" stroke="#be9f78" d="M168.873,-366.392C144.921,-361.469 117.396,-352.899 96,-338 49.9383,-305.926 51.8767,-276.122 51,-220 50.7501,-204.002 42.0368,-197.254 51,-184 75.6594,-147.537 123.768,-130.915 162.041,-123.34"/>
 <polygon fill="#be9f78" stroke="#be9f78" points="162.831,-126.754 172.042,-121.518 161.576,-119.867 162.831,-126.754"/>
 <text text-anchor="middle" x="67" y="-241.9" font-family="Times,serif" font-size="12.00" fill="#777777">expire</text>
 </g>
-<!-- COMMITED&#45;&gt;WAITING_FOR_ITEMS -->
+<!-- COMMITTED&#45;&gt;WAITING_FOR_ITEMS -->
 <g id="edge16" class="edge"><title>COMMITED&#45;&gt;WAITING_FOR_ITEMS</title>
 <path fill="none" stroke="#be9f78" d="M217.55,-391.929C215.376,-401.887 214.517,-414.372 220,-424 222.836,-428.981 226.691,-433.325 231.082,-437.098"/>
 <polygon fill="#be9f78" stroke="#be9f78" points="229.335,-440.158 239.458,-443.283 233.493,-434.527 229.335,-440.158"/>
@@ -111,7 +111,7 @@
 <polygon fill="#be9f78" stroke="#be9f78" points="252.76,-133.916 242.391,-131.74 249.139,-139.907 252.76,-133.916"/>
 <text text-anchor="middle" x="310" y="-155.9" font-family="Times,serif" font-size="12.00" fill="#777777">expire</text>
 </g>
-<!-- RESULT_IS_READY&#45;&gt;COMMITED -->
+<!-- RESULT_IS_READY&#45;&gt;COMMITTED -->
 <g id="edge13" class="edge"><title>RESULT_IS_READY&#45;&gt;COMMITED</title>
 <path fill="none" stroke="#be9f78" d="M358.571,-220.066C359.688,-242.043 358.473,-280.441 340,-306 323.174,-329.279 295.597,-345.636 271.44,-356.357"/>
 <polygon fill="#be9f78" stroke="#be9f78" points="269.883,-353.215 262.035,-360.332 272.608,-359.663 269.883,-353.215"/>
@@ -134,7 +134,7 @@
 <polygon fill="#be9f78" stroke="#be9f78" points="194.416,-142.054 199.684,-132.861 189.833,-136.762 194.416,-142.054"/>
 <text text-anchor="middle" x="191" y="-155.9" font-family="Times,serif" font-size="12.00" fill="#777777">expire</text>
 </g>
-<!-- NO_RESULT&#45;&gt;COMMITED -->
+<!-- NO_RESULT&#45;&gt;COMMITTED -->
 <g id="edge12" class="edge"><title>NO_RESULT&#45;&gt;COMMITED</title>
 <path fill="none" stroke="#be9f78" d="M106.064,-219.663C88.9561,-240.872 65.4227,-278.102 83,-306 100.873,-334.368 134.448,-350.988 164.238,-360.579"/>
 <polygon fill="#be9f78" stroke="#be9f78" points="163.582,-364.036 174.167,-363.568 165.601,-357.334 163.582,-364.036"/>

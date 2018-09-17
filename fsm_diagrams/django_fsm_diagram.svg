@@ -28,12 +28,12 @@
 <ellipse fill="none" stroke="black" cx="382.399" cy="-1261" rx="90.4879" ry="90.9839"/>
 <text text-anchor="middle" x="382.399" y="-1257.3" font-family="Times,serif" font-size="14.00">RESULT_IS_READY</text>
 </g>
-<!-- api.deposits.state.COMMITED -->
+<!-- api.deposits.state.COMMITTED -->
 <g id="node5" class="node"><title>api.deposits.state.COMMITED</title>
 <ellipse fill="none" stroke="black" cx="351.399" cy="-1007" rx="59.1941" ry="59.5901"/>
 <text text-anchor="middle" x="351.399" y="-1003.3" font-family="Times,serif" font-size="14.00">COMMITED</text>
 </g>
-<!-- api.deposits.state.RESULT_IS_READY&#45;&gt;api.deposits.state.COMMITED -->
+<!-- api.deposits.state.RESULT_IS_READY&#45;&gt;api.deposits.state.COMMITTED -->
 <g id="edge2" class="edge"><title>api.deposits.state.RESULT_IS_READY&#45;&gt;api.deposits.state.COMMITED</title>
 <path fill="none" stroke="black" d="M371.382,-1170.44C367.584,-1139.57 363.392,-1105.49 359.833,-1076.56"/>
 <polygon fill="black" stroke="black" points="363.297,-1076.05 358.602,-1066.56 356.349,-1076.91 363.297,-1076.05"/>
@@ -56,7 +56,7 @@
 <polygon fill="black" stroke="black" points="246.809,-70.7134 236.436,-72.8685 245.889,-77.6526 246.809,-70.7134"/>
 <text text-anchor="middle" x="490.399" y="-574.3" font-family="Times,serif" font-size="14.00">expire</text>
 </g>
-<!-- api.deposits.state.WAITING_FOR_ITEMS&#45;&gt;api.deposits.state.COMMITED -->
+<!-- api.deposits.state.WAITING_FOR_ITEMS&#45;&gt;api.deposits.state.COMMITTED -->
 <g id="edge9" class="edge"><title>api.deposits.state.WAITING_FOR_ITEMS&#45;&gt;api.deposits.state.COMMITED</title>
 <path fill="none" stroke="black" d="M359.075,-375.919C378.788,-489.474 403.88,-680.306 386.399,-844 383.023,-875.608 376.043,-910.105 369.198,-939.111"/>
 <polygon fill="black" stroke="black" points="365.724,-938.586 366.789,-949.128 372.53,-940.223 365.724,-938.586"/>
@@ -77,7 +77,7 @@
 <path fill="none" stroke="black" d="M307.541,-489.046C308.621,-481.824 315.662,-434.742 322.85,-386.67"/>
 <polygon fill="black" stroke="black" points="326.318,-387.141 324.336,-376.734 319.395,-386.106 326.318,-387.141"/>
 </g>
-<!-- api.deposits.state.COMMITED&#45;&gt;api.deposits.state.WAITING_FOR_ITEMS -->
+<!-- api.deposits.state.COMMITTED&#45;&gt;api.deposits.state.WAITING_FOR_ITEMS -->
 <g id="edge5" class="edge"><title>api.deposits.state.COMMITED&#45;&gt;api.deposits.state.WAITING_FOR_ITEMS</title>
 <path fill="none" stroke="black" d="M361.252,-947.706C365.958,-916.96 371.064,-878.549 373.399,-844 376.995,-790.788 403.126,-648.28 373.399,-604 361.622,-586.458 341.176,-603.542 329.399,-586 325.435,-580.096 329.278,-577.11 329.399,-570 330.422,-509.79 332.625,-442.674 334.702,-387.787"/>
 <polygon fill="black" stroke="black" points="338.204,-387.812 335.089,-377.685 331.209,-387.544 338.204,-387.812"/>
@@ -88,13 +88,13 @@
 <ellipse fill="none" stroke="black" cx="191.399" cy="-724" rx="108.31" ry="108.581"/>
 <text text-anchor="middle" x="191.399" y="-720.3" font-family="Times,serif" font-size="14.00">WAITING_FOR_RESULT</text>
 </g>
-<!-- api.deposits.state.COMMITED&#45;&gt;api.deposits.state.WAITING_FOR_RESULT -->
+<!-- api.deposits.state.COMMITTED&#45;&gt;api.deposits.state.WAITING_FOR_RESULT -->
 <g id="edge7" class="edge"><title>api.deposits.state.COMMITED&#45;&gt;api.deposits.state.WAITING_FOR_RESULT</title>
 <path fill="none" stroke="black" d="M322.238,-954.787C302.042,-919.318 274.465,-870.885 249.835,-827.628"/>
 <polygon fill="black" stroke="black" points="252.779,-825.726 244.79,-818.768 246.696,-829.19 252.779,-825.726"/>
 <text text-anchor="middle" x="294.899" y="-866.3" font-family="Times,serif" font-size="14.00">started</text>
 </g>
-<!-- api.deposits.state.COMMITED&#45;&gt;api.deposits.state.EXPIRED -->
+<!-- api.deposits.state.COMMITTED&#45;&gt;api.deposits.state.EXPIRED -->
 <g id="edge15" class="edge"><title>api.deposits.state.COMMITED&#45;&gt;api.deposits.state.EXPIRED</title>
 <path fill="none" stroke="black" d="M329.905,-951.104C319.537,-931.076 305.194,-909.943 286.399,-896 208.136,-837.941 133.581,-920.642 73.3988,-844 -98.9238,-624.547 76.4959,-258.704 152.765,-122.361"/>
 <polygon fill="black" stroke="black" points="155.994,-123.76 157.86,-113.331 149.898,-120.32 155.994,-123.76"/>
@@ -105,7 +105,7 @@
 <ellipse fill="none" stroke="black" cx="225.399" cy="-491" rx="61.1419" ry="61.1893"/>
 <text text-anchor="middle" x="225.399" y="-487.3" font-family="Times,serif" font-size="14.00">NO_RESULT</text>
 </g>
-<!-- api.deposits.state.NO_RESULT&#45;&gt;api.deposits.state.COMMITED -->
+<!-- api.deposits.state.NO_RESULT&#45;&gt;api.deposits.state.COMMITTED -->
 <g id="edge8" class="edge"><title>api.deposits.state.NO_RESULT&#45;&gt;api.deposits.state.COMMITED</title>
 <path fill="none" stroke="black" d="M266.799,-536.336C282.486,-555.694 298.85,-579.539 308.399,-604 331.416,-662.966 343.345,-838.396 348.384,-936.908"/>
 <polygon fill="black" stroke="black" points="344.897,-937.257 348.893,-947.069 351.888,-936.906 344.897,-937.257"/>

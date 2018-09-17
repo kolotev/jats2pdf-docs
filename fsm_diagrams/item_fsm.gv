@@ -8,8 +8,12 @@ digraph {
     END [label = "" shape = doublecircle]
     node [shape = ellipse style=filled fillcolor = " #D2B48C " fontcolor = black]
     edge [fontcolor = " #777777 " color = " #be9f78 " fontsize = 12 ]
-    START -> WAITING_FOR_UPLOAD -> READY_FOR_PROCESSING -> EXPIRED -> END 
-    WAITING_FOR_UPLOAD -> EXPIRED
-    EXPIRED -> EXPIRED
+
+    START -> WAITING_FOR_UPLOAD 
+    WAITING_FOR_UPLOAD -> READY_FOR_PROCESSING [label = "uploaded"]
+    READY_FOR_PROCESSING -> EXPIRED  [label = "expire"]
+    EXPIRED -> END
+
+    WAITING_FOR_UPLOAD -> EXPIRED [label = "expire"]
   }
 }

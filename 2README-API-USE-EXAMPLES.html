@@ -64,7 +64,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="1README-API.html">API description</a>
+    <a class="" href="1README-API.html">API</a>
 	    </li>
           
             <li class="toctree-l1 current">
@@ -74,13 +74,23 @@
             
     <li class="toctree-l2"><a href="#api-use-examples">API use examples</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#deposit-file-items">Deposit file items</a></li>
+        
+            <li><a class="toctree-l3" href="#commit-a-deposit">Commit a deposit</a></li>
+        
+            <li><a class="toctree-l3" href="#deposit-url-items">Deposit URL items</a></li>
+        
+        </ul>
+    
 
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="3BACKOFFICE.html">Backoffice</a>
+    <a class="" href="3BACKOFFICE.html">Back-Office</a>
 	    </li>
           
         </ul>
@@ -116,6 +126,234 @@
             <div class="section">
               
                 <h2 id="api-use-examples">API use examples</h2>
+<h3 id="deposit-file-items">Deposit file items</h3>
+<div class="admonition tip">
+<p class="admonition-title">Request</p>
+</div>
+<pre><code class="http">POST /api/deposits/ HTTP/1.1
+Host: localhost
+Content-Type: application/json
+Accept: application/json
+</code></pre>
+
+<pre><code class="json">{
+    &quot;depositor&quot;: &quot;test&quot;,
+    &quot;domain&quot;: &quot;test&quot;,
+    &quot;items&quot;: [
+            {
+         &quot;item&quot;: &quot;nihms973641_nihpa.nxml&quot;,
+         &quot;item_size&quot;: 196676
+      },
+            {
+         &quot;item&quot;: &quot;nihms973641f1.tif&quot;,
+         &quot;item_size&quot;: 105600
+      },
+            {
+         &quot;item&quot;: &quot;nihms973641f2.tif&quot;,
+         &quot;item_size&quot;: 167016
+      },
+            {
+         &quot;item&quot;: &quot;nihms973641f3.tif&quot;,
+         &quot;item_size&quot;: 192036
+      },
+            {
+         &quot;item&quot;: &quot;nihms973641f4.tif&quot;,
+         &quot;item_size&quot;: 122032
+      }
+        ]
+}
+</code></pre>
+
+<div class="admonition tip">
+<p class="admonition-title">Response</p>
+</div>
+<pre><code class="http">HTTP/1.1 201 Created
+Date: Mon, 17 Sep 2018 20:31:30 GMT
+Allow: GET, POST, HEAD, OPTIONS
+Content-Length: 5381
+Content-Type: application/json
+</code></pre>
+
+<pre><code class="json">{
+    &quot;deposit_id&quot;: &quot;ea02454e-01eb-496a-a596-680f8a62406a&quot;,
+    &quot;items&quot;: [
+        {
+            &quot;s3_head_url&quot;: &quot;https://pmc-jats2pdf.s3.amazonaws.com/test/ea02454e-01eb-496a-a596-680f8a62406a/nihms973641_nihpa.nxml?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=...&quot;,
+            &quot;s3_put_url&quot;: &quot;https://pmc-jats2pdf.s3.amazonaws.com/test/ea02454e-01eb-496a-a596-680f8a62406a/nihms973641_nihpa.nxml?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=...&quot;,
+            &quot;item_id&quot;: &quot;7034bc8a-92e6-4266-9ba4-2aeae85a5fdf&quot;,
+            &quot;depositor&quot;: &quot;test&quot;,
+            &quot;item&quot;: &quot;nihms973641_nihpa.nxml&quot;,
+            &quot;item_type&quot;: &quot;FILE&quot;,
+            &quot;state&quot;: &quot;WAITING_FOR_UPLOAD&quot;,
+            &quot;created&quot;: &quot;2018-09-17T16:31:30.373798-04:00&quot;,
+            &quot;updated&quot;: &quot;2018-09-17T16:31:30.373840-04:00&quot;,
+            &quot;result&quot;: false,
+            &quot;item_size&quot;: 196676
+        },
+        {
+            &quot;s3_head_url&quot;: &quot;https://pmc-jats2pdf.s3.amazonaws.com/test/ea02454e-01eb-496a-a596-680f8a62406a/nihms973641f1.tif?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=...&quot;,
+            &quot;s3_put_url&quot;: &quot;https://pmc-jats2pdf.s3.amazonaws.com/test/ea02454e-01eb-496a-a596-680f8a62406a/nihms973641f1.tif?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=...&quot;,
+            &quot;item_id&quot;: &quot;d54df37c-4a43-41ca-9767-ae88d2094310&quot;,
+            &quot;depositor&quot;: &quot;test&quot;,
+            &quot;item&quot;: &quot;nihms973641f1.tif&quot;,
+            &quot;item_type&quot;: &quot;FILE&quot;,
+            &quot;state&quot;: &quot;WAITING_FOR_UPLOAD&quot;,
+            &quot;created&quot;: &quot;2018-09-17T16:31:30.382705-04:00&quot;,
+            &quot;updated&quot;: &quot;2018-09-17T16:31:30.382746-04:00&quot;,
+            &quot;result&quot;: false,
+            &quot;item_size&quot;: 105600
+        },
+        {},
+        {},
+        {}
+    ],
+    &quot;state&quot;: &quot;WAITING_FOR_ITEMS&quot;,
+    &quot;created&quot;: &quot;2018-09-17T16:31:30.361948-04:00&quot;,
+    &quot;updated&quot;: &quot;2018-09-17T16:31:30.362041-04:00&quot;,
+    &quot;depositor&quot;: &quot;test&quot;,
+    &quot;domain&quot;: &quot;test&quot;
+}
+</code></pre>
+
+<h3 id="commit-a-deposit">Commit a deposit</h3>
+<div class="admonition tip">
+<p class="admonition-title">Request</p>
+</div>
+<pre><code class="http">PUT /api/deposits/ea02454e-01eb-496a-a596-680f8a62406a/commit/ HTTP/1.1
+Host: localhost
+Content-Type: application/json
+Accept: application/json
+Content-Length: 0
+</code></pre>
+
+<div class="admonition tip">
+<p class="admonition-title">Response</p>
+</div>
+<pre><code class="http">HTTP/1.0 200 OK
+Date: Mon, 17 Sep 2018 20:43:23 GMT
+Content-Type: application/json
+Allow: PUT, OPTIONS
+Content-Length: 5373
+</code></pre>
+
+<pre><code class="json">{
+    &quot;deposit_id&quot;: &quot;ea02454e-01eb-496a-a596-680f8a62406a&quot;,
+    &quot;items&quot;: [
+        {
+            &quot;s3_head_url&quot;: &quot;https://pmc-jats2pdf.s3.amazonaws.com/test/ea02454e-01eb-496a-a596-680f8a62406a/nihms973641_nihpa.nxml?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=...&quot;,
+            &quot;s3_put_url&quot;: &quot;https://pmc-jats2pdf.s3.amazonaws.com/test/ea02454e-01eb-496a-a596-680f8a62406a/nihms973641_nihpa.nxml?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=...&quot;,
+            &quot;item_id&quot;: &quot;7034bc8a-92e6-4266-9ba4-2aeae85a5fdf&quot;,
+            &quot;depositor&quot;: &quot;test&quot;,
+            &quot;item&quot;: &quot;nihms973641_nihpa.nxml&quot;,
+            &quot;item_type&quot;: &quot;FILE&quot;,
+            &quot;state&quot;: &quot;WAITING_FOR_UPLOAD&quot;,
+            &quot;created&quot;: &quot;2018-09-17T16:31:30.373798-04:00&quot;,
+            &quot;updated&quot;: &quot;2018-09-17T16:31:30.373840-04:00&quot;,
+            &quot;result&quot;: false,
+            &quot;item_size&quot;: 196676
+        },
+        {},
+        {},
+        {},
+        {}
+    ],
+    &quot;state&quot;: &quot;COMMITTED&quot;,
+    &quot;created&quot;: &quot;2018-09-17T16:31:30.361948-04:00&quot;,
+    &quot;updated&quot;: &quot;2018-09-17T16:43:23.724580-04:00&quot;,
+    &quot;depositor&quot;: &quot;test&quot;,
+    &quot;domain&quot;: &quot;test&quot;
+}
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some details of JSON documents are redacted for brevity.</p>
+</div>
+<h3 id="deposit-url-items">Deposit URL items</h3>
+<div class="admonition tip">
+<p class="admonition-title">Request</p>
+</div>
+<pre><code class="http">POST /api/deposits/ HTTP/1.1
+Host: localhost
+Content-Type: application/json
+Accept: application/json
+</code></pre>
+
+<pre><code class="json">{
+    &quot;action&quot;: &quot;commit&quot;,
+    &quot;depositor&quot;: &quot;test&quot;,
+    &quot;domain&quot;: &quot;test&quot;,
+    &quot;items&quot;: [
+            {
+         &quot;item&quot;: &quot;http://ipmc-dev11.be-md.ncbi.nlm.nih.gov/jats2pdf-data/test/nihms973641_nihpa.nxml&quot;,
+         &quot;item_size&quot;: 196676
+      },
+            {
+         &quot;item&quot;: &quot;http://ipmc-dev11.be-md.ncbi.nlm.nih.gov/jats2pdf-data/test/nihms973641f1.tif&quot;,
+         &quot;item_size&quot;: 105600
+      },
+            {
+         &quot;item&quot;: &quot;http://ipmc-dev11.be-md.ncbi.nlm.nih.gov/jats2pdf-data/test/nihms973641f2.tif&quot;,
+         &quot;item_size&quot;: 167016
+      },
+            {
+         &quot;item&quot;: &quot;http://ipmc-dev11.be-md.ncbi.nlm.nih.gov/jats2pdf-data/test/nihms973641f3.tif&quot;,
+         &quot;item_size&quot;: 192036
+      },
+            {
+         &quot;item&quot;: &quot;http://ipmc-dev11.be-md.ncbi.nlm.nih.gov/jats2pdf-data/test/nihms973641f4.tif&quot;,
+         &quot;item_size&quot;: 122032
+      }
+        ]
+}
+</code></pre>
+
+<div class="admonition tip">
+<p class="admonition-title">Response</p>
+</div>
+<pre><code class="http">HTTP/1.0 201 Created
+Date: Mon, 17 Sep 2018 20:39:48 GMT
+Content-Type: application/json
+Allow: GET, POST, HEAD, OPTIONS
+Content-Length: 1863
+</code></pre>
+
+<pre><code class="json">{
+    &quot;deposit_id&quot;: &quot;0c6c7906-35f3-4f8a-9842-fa2991a1c74b&quot;,
+    &quot;items&quot;: [
+        {
+            &quot;item_id&quot;: &quot;cf2aea2f-6865-4992-9775-2b2011f25f24&quot;,
+            &quot;depositor&quot;: &quot;test&quot;,
+            &quot;item&quot;: &quot;http://ipmc-dev11.be-md.ncbi.nlm.nih.gov/jats2pdf-data/test/nihms973641_nihpa.nxml&quot;,
+            &quot;item_type&quot;: &quot;URL&quot;,
+            &quot;state&quot;: &quot;READY_FOR_PROCESSING&quot;,
+            &quot;created&quot;: &quot;2018-09-17T16:39:48.761646-04:00&quot;,
+            &quot;updated&quot;: &quot;2018-09-17T16:39:48.768045-04:00&quot;,
+            &quot;result&quot;: false,
+            &quot;item_size&quot;: 196676
+        },
+        {
+            &quot;item_id&quot;: &quot;f00fdd7b-13e4-4a1a-818f-fee0b9aabe0c&quot;,
+            &quot;depositor&quot;: &quot;test&quot;,
+            &quot;item&quot;: &quot;http://ipmc-dev11.be-md.ncbi.nlm.nih.gov/jats2pdf-data/test/nihms973641f1.tif&quot;,
+            &quot;item_type&quot;: &quot;URL&quot;,
+            &quot;state&quot;: &quot;READY_FOR_PROCESSING&quot;,
+            &quot;created&quot;: &quot;2018-09-17T16:39:48.789584-04:00&quot;,
+            &quot;updated&quot;: &quot;2018-09-17T16:39:48.796452-04:00&quot;,
+            &quot;result&quot;: false,
+            &quot;item_size&quot;: 105600
+        },
+        {},
+        {},
+        {}
+    ],
+    &quot;state&quot;: &quot;COMMITTED&quot;,
+    &quot;created&quot;: &quot;2018-09-17T16:39:48.754281-04:00&quot;,
+    &quot;updated&quot;: &quot;2018-09-17T16:39:48.855323-04:00&quot;,
+    &quot;depositor&quot;: &quot;test&quot;,
+    &quot;domain&quot;: &quot;test&quot;
+}
+</code></pre>
               
             </div>
           </div>
@@ -123,10 +361,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="3BACKOFFICE.html" class="btn btn-neutral float-right" title="Backoffice">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="3BACKOFFICE.html" class="btn btn-neutral float-right" title="Back-Office">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="1README-API.html" class="btn btn-neutral" title="API description"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="1README-API.html" class="btn btn-neutral" title="API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
