@@ -1,144 +1,738 @@
+
+
+
+
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="author" content="Andrey Kolotev">
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>API - JATS2PDF</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "API";
-    var mkdocs_page_input_path = "1README-API.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/json.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="index.html" class="icon icon-home"> JATS2PDF</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="RESTful API around Antenna House Formatter application for converting manuscript XML tagged according to JATS to PDF.">
+      
+      
+      
+        <meta name="author" content="Andrey Kolotev">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>API - JATS2PDF</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="352" height="448"
+    viewBox="0 0 352 448" id="__bitbucket">
+  <path fill="currentColor" d="M203.75 214.75q2 15.75-12.625 25.25t-27.875
+        1.5q-9.75-4.25-13.375-14.5t-0.125-20.5 13-14.5q9-4.5 18.125-3t16 8.875
+        6.875 16.875zM231.5 209.5q-3.5-26.75-28.25-41t-49.25-3.25q-15.75
+        7-25.125 22.125t-8.625 32.375q1 22.75 19.375 38.75t41.375 14q22.75-2
+        38-21t12.5-42zM291.25
+        74q-5-6.75-14-11.125t-14.5-5.5-17.75-3.125q-72.75-11.75-141.5 0.5-10.75
+        1.75-16.5 3t-13.75 5.5-12.5 10.75q7.5 7 19 11.375t18.375 5.5 21.875
+        2.875q57 7.25 112 0.25 15.75-2 22.375-3t18.125-5.375 18.75-11.625zM305.5
+        332.75q-2 6.5-3.875 19.125t-3.5 21-7.125 17.5-14.5 14.125q-21.5
+        12-47.375 17.875t-50.5 5.5-50.375-4.625q-11.5-2-20.375-4.5t-19.125-6.75-18.25-10.875-13-15.375q-6.25-24-14.25-73l1.5-4
+        4.5-2.25q55.75 37 126.625 37t126.875-37q5.25 1.5 6 5.75t-1.25 11.25-2
+        9.25zM350.75 92.5q-6.5 41.75-27.75 163.75-1.25 7.5-6.75 14t-10.875
+        10-13.625 7.75q-63 31.5-152.5
+        22-62-6.75-98.5-34.75-3.75-3-6.375-6.625t-4.25-8.75-2.25-8.5-1.5-9.875-1.375-8.75q-2.25-12.5-6.625-37.5t-7-40.375-5.875-36.875-5.5-39.5q0.75-6.5
+        4.375-12.125t7.875-9.375 11.25-7.5 11.5-5.625 12-4.625q31.25-11.5
+        78.25-16 94.75-9.25 169 12.5 38.75 11.5 53.75 30.5 4 5 4.125
+        12.75t-1.375 13.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#api" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="index.html" title="JATS2PDF" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            <li class="toctree-l1">
-		
-    <a class="" href="index.html">Overview</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="0README.html">Introduction</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="1README-API.html">API</a>
-    <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#api">API</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#prerequisites">Prerequisites</a></li>
-        
-            <li><a class="toctree-l3" href="#introduction">Introduction</a></li>
-        
-            <li><a class="toctree-l3" href="#definitions">Definitions</a></li>
-        
-            <li><a class="toctree-l3" href="#api-interactions">API Interactions</a></li>
-        
-            <li><a class="toctree-l3" href="#deposit">Deposit</a></li>
-        
-            <li><a class="toctree-l3" href="#item">Item</a></li>
-        
-            <li><a class="toctree-l3" href="#auto-generated-states-diagram">Auto-generated states diagram</a></li>
-        
-        </ul>
-    
-
-    </ul>
-	    </li>
+              <span class="md-header-nav__topic">
+                JATS2PDF
+              </span>
+              <span class="md-header-nav__topic">
+                API
+              </span>
+            
           
-            <li class="toctree-l1">
-		
-    <a class="" href="2README-API-USE-EXAMPLES.html">API use examples</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="3BACKOFFICE.html">Back-Office</a>
-	    </li>
-          
-        </ul>
+        </div>
       </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">JATS2PDF</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>API</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main">
-            <div class="section">
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://bitbucket.ncbi.nlm.nih.gov/projects/PMC/repos/jats2pdf/browse/" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="JATS2PDF" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    JATS2PDF
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://bitbucket.ncbi.nlm.nih.gov/projects/PMC/repos/jats2pdf/browse/" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="0README.html" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        API
+      </label>
+    
+    <a href="1README-API.html" title="API" class="md-nav__link md-nav__link--active">
+      API
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definitions" title="Definitions" class="md-nav__link">
+    Definitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-interactions" title="API Interactions" class="md-nav__link">
+    API Interactions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deposit" title="Deposit" class="md-nav__link">
+    Deposit
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deposit-model" title="Deposit Model" class="md-nav__link">
+    Deposit Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-actions" title="Deposit Actions" class="md-nav__link">
+    Deposit Actions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url-items" title="URL items" class="md-nav__link">
+    URL items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-items" title="File Items" class="md-nav__link">
+    File Items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed-items" title="Mixed items" class="md-nav__link">
+    Mixed items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-items" title="No items" class="md-nav__link">
+    No items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-commit" title="Deposit commit" class="md-nav__link">
+    Deposit commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-state-monitoring" title="Deposit state monitoring" class="md-nav__link">
+    Deposit state monitoring
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-no_result" title="State NO_RESULT" class="md-nav__link">
+    State NO_RESULT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-result_is_ready" title="State RESULT_IS_READY" class="md-nav__link">
+    State RESULT_IS_READY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-expired" title="State EXPIRED" class="md-nav__link">
+    State EXPIRED
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-states-diagram" title="Deposit states diagram" class="md-nav__link">
+    Deposit states diagram
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-is-ready" title="Deposit is ready" class="md-nav__link">
+    Deposit is ready
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-failed" title="Conversion failed" class="md-nav__link">
+    Conversion failed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#item" title="Item" class="md-nav__link">
+    Item
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#item-model" title="Item model" class="md-nav__link">
+    Item model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item-states-diagram" title="Item states diagram" class="md-nav__link">
+    Item states diagram
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-generated-states-diagram" title="Auto-generated states diagram" class="md-nav__link">
+    Auto-generated states diagram
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="2README-API-USE-EXAMPLES.html" title="Use examples" class="md-nav__link">
+      Use examples
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="3BACKOFFICE.html" title="Back-Office" class="md-nav__link">
+      Back-Office
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definitions" title="Definitions" class="md-nav__link">
+    Definitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-interactions" title="API Interactions" class="md-nav__link">
+    API Interactions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deposit" title="Deposit" class="md-nav__link">
+    Deposit
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deposit-model" title="Deposit Model" class="md-nav__link">
+    Deposit Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-actions" title="Deposit Actions" class="md-nav__link">
+    Deposit Actions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url-items" title="URL items" class="md-nav__link">
+    URL items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-items" title="File Items" class="md-nav__link">
+    File Items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed-items" title="Mixed items" class="md-nav__link">
+    Mixed items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-items" title="No items" class="md-nav__link">
+    No items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-commit" title="Deposit commit" class="md-nav__link">
+    Deposit commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-state-monitoring" title="Deposit state monitoring" class="md-nav__link">
+    Deposit state monitoring
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-no_result" title="State NO_RESULT" class="md-nav__link">
+    State NO_RESULT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-result_is_ready" title="State RESULT_IS_READY" class="md-nav__link">
+    State RESULT_IS_READY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-expired" title="State EXPIRED" class="md-nav__link">
+    State EXPIRED
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-states-diagram" title="Deposit states diagram" class="md-nav__link">
+    Deposit states diagram
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-is-ready" title="Deposit is ready" class="md-nav__link">
+    Deposit is ready
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-failed" title="Conversion failed" class="md-nav__link">
+    Conversion failed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#item" title="Item" class="md-nav__link">
+    Item
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#item-model" title="Item model" class="md-nav__link">
+    Item model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item-states-diagram" title="Item states diagram" class="md-nav__link">
+    Item states diagram
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-generated-states-diagram" title="Auto-generated states diagram" class="md-nav__link">
+    Auto-generated states diagram
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
-                <h2 id="api">API</h2>
-<h3 id="prerequisites">Prerequisites</h3>
+                
+                
+                <h1 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h1>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>For each article, the service requires:</p>
 <ol>
 <li>
-<p>An article XML file that is well formed and valid according to the NLM 
+<p>An article XML file that is well-formed and valid according to the NLM 
 Journal Publishing or Archiving DTD version 2.3 or 3.0 or to the NISO 
 JATSJournal Publishing or Archiving DTD version 1.0 or 1.1. </p>
 </li>
@@ -148,15 +742,13 @@ with ".tif" extension (although the image references in the graphic/@xlink:href
 might not include the file extension).</p>
 </li>
 <li>
-<p>Also, the PMC known domain name may be supplied to set the style/branding of 
-the output. If a domain name is not supplied, a general HHS style will be used. 
+<p>Also, the PMC known domain name may be supplied to set the style/branding of the output. If a domain name is not supplied, a general HHS style will be used. 
 If you need the output to be styled differently from what currently supported, 
-please make in inquiry.</p>
+please make an inquiry.</p>
 </li>
 <li>
 <p>Domain to the article belongs to. (Branding and rendering could be specific 
-for each domain.). If the domain of your interest is not supported yet, then 
-contact PMC group.</p>
+for each domain.). If the domain of your interest is not supported yet, then contact PMC group.</p>
 </li>
 <li>
 <p>Depositor name. </p>
@@ -167,17 +759,18 @@ contact PMC group.</p>
 <p>PMC conversion group needs to investigate if images other than the tiffs 
 are currently expected in XSL code.</p>
 </div>
-<h3 id="introduction">Introduction</h3>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>The production API endpoint is available at 
-<a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/api/">https://api.ncbi.nlm.nih.gov/lit/jats2pdf/api/</a>, 
-also there is a starting/home page of the service available at 
-<a href="https://dev.ncbi.nlm.nih.gov/lit/jats2pdf/">https://dev.ncbi.nlm.nih.gov/lit/jats2pdf/</a>. 
-Where you can find links to this documentation, 
-<a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/swagger/">API Swagger page</a>), 
-<a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/swagger/?format=openapi">API Swagger OpenApi specs</a>) 
-and <a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/admin/">Admin page</a>. 
-You can check the version of the application here 
-<a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/version/">https://api.ncbi.nlm.nih.gov/lit/jats2pdf/version/</a></p>
+<a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/api/">https://api.ncbi.nlm.nih.gov/lit/jats2pdf/api/</a>. </p>
+<p>Also, there is a starting/home page of the service available at 
+<a href="https://dev.ncbi.nlm.nih.gov/lit/jats2pdf/">https://dev.ncbi.nlm.nih.gov/lit/jats2pdf/</a>. </p>
+<p>Other links:</p>
+<ul>
+<li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/swagger/">API Swagger page</a> </li>
+<li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/swagger/?format=openapi">API Swagger OpenApi specs</a></li>
+<li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/admin/">Admin page</a>. </li>
+<li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/version/">Check the version of application</a></li>
+</ul>
 <p>The following entities of the API are available for consumers:</p>
 <ul>
 <li>depositors -&gt; /api/depositors/</li>
@@ -187,15 +780,15 @@ You can check the version of the application here
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>This service currently supports interactive requests with browser of 
-your choice and with your custom application, which sends and accepts 
-data in <code>JSON</code> format. </p>
+<p>This service currently supports interactive requests with the browser of your choice and with your custom application, which sends and accepts data in <code>JSON</code> format. </p>
 </div>
-<h3 id="definitions">Definitions</h3>
+<h2 id="definitions">Definitions<a class="headerlink" href="#definitions" title="Permanent link">&para;</a></h2>
+<div class="admonition detail">
+<p class="admonition-title">Detail</p>
 <ul>
 <li>
-<p><code>depositor</code> - consumer of this web service (later, a login from credentials 
-will be used instead), currently used for self identification.</p>
+<p><code>depositor</code> - the consumer of this web service (later, a login from credentials 
+will be used instead), currently used for self-identification.</p>
 </li>
 <li>
 <p><code>domain</code> - the name to be used in the future for manuscript branding 
@@ -205,27 +798,20 @@ though you still must provide that identification in your requests.</p>
 </li>
 <li>
 <p><code>deposit</code> - set of files (aka <strong>items</strong>) to be used in conversion. 
-All files in deposit must have unique names. Only one manuscript XML file 
-must be present. All other files expected to be images for figures, 
+All files in deposit must have unique names. Only one manuscript XML file must be present. All other files expected are images for figures, 
 tables (if no native tables available), equations if applicable. 
 The <strong>deposit</strong> could be provided as a single 
-or multiple archive file(s) (in zip, tar, tar.gz or tgz formats) 
-which includes an XML file with all image files it depends 
-on (archive files are not supported yet). 
+or multiple archive file(s) (in .zip, .tar, .tar.gz or .tgz formats) 
+which includes an XML file with all image files it depends on 
 Or as uncompressed/unarchived individual files. 
 Each file of the deposit is called an <strong>item</strong>, 
 see definition of <strong>item</strong> below.</p>
 </li>
-</ul>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>When an <strong>item</strong> is a file, it has to be uploaded to NCBI's S3 
-storage bucket by consumer separately. When an <strong>item</strong> is an URL 
-starting with "http://" or "https://" sub-strings then 
-the <strong>jats2pdf-back-office</strong> component must be able to access 
-files behind the URLs from storage of consumer's choice. </p>
-</div>
-<ul>
+<li>
+<p><code>item</code> - is an entity of this service which represents a file (name) 
+or URL behind a file. All <strong>items</strong> together constitute a <strong>deposit</strong> 
+to be used in the conversion process to PDF document.  </p>
+</li>
 <li>
 <p><code>deposit_pk</code> - the service generated identifier of a <strong>deposit</strong> 
 (also called as <strong>deposit_id</strong>).</p>
@@ -235,7 +821,20 @@ files behind the URLs from storage of consumer's choice. </p>
 (also called as <strong>item_id</strong>).</p>
 </li>
 </ul>
-<h3 id="api-interactions">API Interactions</h3>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>When an <strong>item</strong> is a file, it has to be uploaded to NCBI's S3 
+storage bucket by consumer separately. When an <strong>item</strong> is an URL 
+starting with "http://" or "https://" sub-strings then 
+the <strong>jats2pdf-back-office</strong> component must be able to access 
+files behind the URLs from storage of consumer's choice. </p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Files compressed with various utilities (producing .zip, .tar, .tar.gz or .tgz formats) are not supported yet.</p>
+</div>
+<h2 id="api-interactions">API Interactions<a class="headerlink" href="#api-interactions" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you want to receive and send your data in json format use the following 
@@ -248,10 +847,12 @@ your HTTP requests. </p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Not all forms work properly, unfortunatly.</p>
+<p>Not all forms work properly, unfortunately.</p>
 </div>
 <p>The following steps (in plain words) could be considered as a typical scenario 
 to interact with a service.</p>
+<div class="admonition detail">
+<p class="admonition-title">Detail</p>
 <ul>
 <li><a href="#deposit">Create a deposit</a>.</li>
 <li>Upload items to NCBI's S3 storage bucket if you can not provide URL of your files.</li>
@@ -259,24 +860,40 @@ to interact with a service.</p>
 <li><a href="#deposit-state-monitoring">Monitor a deposit state</a></li>
 <li><a href="#deposit-result">Fetch a result</a> if generated.</li>
 </ul>
-<p>The service support many other actions, but they are not considered typical 
+</div>
+<p>The service supports many other actions, but they are not considered typical 
 for the consumers.</p>
-<h3 id="deposit">Deposit</h3>
+<h2 id="deposit">Deposit<a class="headerlink" href="#deposit" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Create</p>
-<p><code>POST /api/deposits</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>POST /api/deposits
+</pre></div>
+</td></tr></table>
+
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To create a deposit you need to send a <code>POST</code> request to <code>/api/deposits/</code> 
-endpoint. Based on your desire and ability to provide your files in form 
-of URLs or files you may proceed to one of the following sections 
+endpoint. Based on your desire and ability to provide your files inform 
+of URLs or files, you may proceed to one of the following sections 
 <a href="#url-items">URL items</a>, <a href="#file-items">File items</a>, <a href="#mixed-items">Mixed items</a> 
 or even with <a href="#no-items">No items</a> (do not worry you can supply items later 
 in subsequent requests).</p>
 </div>
-<h4 id="deposit-model">Deposit Model</h4>
-<pre><code>{
+<h3 id="deposit-model">Deposit Model<a class="headerlink" href="#deposit-model" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{
   action: string,      
   items: [
     $item, $item, ... 
@@ -284,17 +901,18 @@ in subsequent requests).</p>
   details: string,
   *depositor*: string,
   *domain*: string,
-  %deposit_id%: string,
-  %created%: iso-8601-time-date-string,
-  %updated%: iso-8601-time-date-string,
-  %state%: string,
+  #deposit_id#: string,
+  #created#: iso-8601-time-date-string,
+  #updated#: iso-8601-time-date-string,
+  #state#: string,
 }
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Properties in model above, enclosed into <code>*</code> (asterisks) are mandatory,<br />
-enclosed into <code>%</code> are readonly and should be in your requests.</p>
+<p>Properties in the model above, enclosed into <code>*</code> (asterisks) are mandatory,<br />
+enclosed into <code>#</code> are read-only and should be in your requests.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -314,13 +932,15 @@ enclosed into <code>%</code> are readonly and should be in your requests.</p>
 <a href="#definitions">Definitions</a> section.</li>
 </ul>
 </div>
-<h4 id="deposit-actions">Deposit Actions</h4>
+<h3 id="deposit-actions">Deposit Actions<a class="headerlink" href="#deposit-actions" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>the following actions could be used as values of <code>action</code> property 
 in <a href="#deposit-model">deposit model</a> or could be used with <code>PUT</code> requests 
 to the endpoints <code>/api/deposits/{deposit_pk}/{action}/</code></p>
 </div>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
 <ul>
 <li><code>commit</code> - commit a <strong>deposit</strong> for processing.</li>
 <li><code>retry</code> - reprocess a <code>deposit</code> if possible.</li>
@@ -329,17 +949,24 @@ to the endpoints <code>/api/deposits/{deposit_pk}/{action}/</code></p>
 <li><code>succeeded</code> - mark a <strong>deposit</strong> as successful.</li>
 <li><code>expire</code> - mark a <strong>deposit</strong> as expired.</li>
 </ul>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Action value <code>commit</code> would make sense at the time of creation 
-of new <code>deposit</code> for URL items. Not all actions are possible 
+<p>Action value <code>commit</code> would make sense at the time of creation of new <code>deposit</code> for URL items. Not all actions are possible 
 at a given state, see <a href="#deposit-states-diagram">Deposit states diagram</a> below. </p>
 </div>
-<h4 id="url-items">URL items</h4>
+<h3 id="url-items">URL items<a class="headerlink" href="#url-items" title="Permanent link">&para;</a></h3>
 <p>You can use the following model for your requests. 
 See <a href="2README-API-USE-EXAMPLES.html#deposit-url-items">an example</a> of such 
 request on a separate page.</p>
-<pre><code>{
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{
   action: string,      
   items: [
     $item, $item, ... 
@@ -347,28 +974,36 @@ request on a separate page.</p>
   *depositor*: string,
   *domain*: string,
 }
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When you supply your <code>deposit</code> to the service with URL(s) it is recomended 
-to prepare and make avaiable you file(s) ahead of time, 
+<p>When you supply your <code>deposit</code> to the service with URL(s) it is recommended 
+to prepare and make available your file(s) ahead of time, 
 that you can use <code>action</code> property with value "commit" 
 to initiate processing of your deposit at the time of your request 
 when you create a deposit.     </p>
 </div>
-<h4 id="file-items">File Items</h4>
+<h3 id="file-items">File Items<a class="headerlink" href="#file-items" title="Permanent link">&para;</a></h3>
 <p>You can use the following model for your requests. 
 See <a href="2README-API-USE-EXAMPLES.html#deposit-file-items">an example</a> of such 
 request on a separate page.</p>
-<pre><code>{
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{
   items: [
     $item, $item, ... 
   ],
   *depositor*: string,
   *domain*: string
 }
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -381,14 +1016,14 @@ an example of using curl: <code>curl "${s3_put_url}" --upload-file an_article.xm
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Just in case if s3_put_url would expire, just go to 
-<code>/api/deposits/{deposit_pl}/items/{item_pk}</code> and grab a new one. Or you can get 
+<code>/api/deposits/{deposit_pl}/items/{item_pk}/</code> and grab a new one. Or you can get 
 all items from <code>/api/deposits/{deposit_pk}/</code> at once.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>After you uploaded all your files to NCBI's S3 storage bucket you have to 
-commit you deposit for processing by sending an HTTP <code>PUT</code> request to 
-<code>/api/deposits/{deposit_pk}/commit/</code> endpoint.  </p>
+commit your deposit for processing by sending an HTTP <code>PUT</code> request to 
+<code>/api/deposits/{deposit_pk}/commit/</code> endpoint. </p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -396,50 +1031,67 @@ commit you deposit for processing by sending an HTTP <code>PUT</code> request to
 the following endpoint <code>/api/deposits/{deposit_pk}/items/{item_pk}/uploaded</code> 
 after each successfully uploaded file to NCBI's S3 storage bucket.</p>
 </div>
-<h4 id="mixed-items">Mixed items</h4>
+<h3 id="mixed-items">Mixed items<a class="headerlink" href="#mixed-items" title="Permanent link">&para;</a></h3>
 <p>This case should not be typical, but it still can be used. You can basically 
 follow the <a href="#file-items">File Items</a> model above with exception to items 
 supplied as URL for those see <a href="#url-items">URL Items</a>.</p>
-<pre><code>{
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{
   items: [
     $item, $item, ... 
   ],
   *depositor*: string,
   *domain*: string
 }
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>After you uploaded all your files to NCBI's S3 storage bucket you have to 
-commit you deposit for processing by sending an HTTP <code>PUT</code> request to 
+commit your deposit for processing by sending an HTTP <code>PUT</code> request to 
 <code>/api/deposits/{deposit_pk}/commit/</code> endpoint.  </p>
 </div>
-<h4 id="no-items">No items</h4>
+<h3 id="no-items">No items<a class="headerlink" href="#no-items" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This model of depositing your article for conversion is also possible, 
 but it would take more requests/response cycles.</p>
 </div>
-<pre><code>{
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{
   *depositor*: string,
   *domain*: string
 }
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <p>After a deposit was successfully created you have to create your item(s), 
 follow the section <a href="#item">Item creation</a></p>
-<h4 id="deposit-commit">Deposit commit</h4>
+<h3 id="deposit-commit">Deposit commit<a class="headerlink" href="#deposit-commit" title="Permanent link">&para;</a></h3>
 <p>If your items are all URLs the <code>action</code> property could be used 
 with value <code>commit</code> at the time of <a href="#deposit">deposit creation</a> 
-(see above) to save an extra request.</p>
-<p>But otherwise you can commit your deposit to conversion (when all items 
+(see above) to save you an extra request not to be made.</p>
+<p>But otherwise, you can commit your deposit to conversion (when all items 
 are made available).</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><code>PUT</code> <code>/api/deposits/{deposit_pk}/commit/</code></p>
 </div>
-<h4 id="deposit-state-monitoring">Deposit state monitoring</h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="2README-API-USE-EXAMPLES.html#commit-a-deposit">Here is an example</a> of committing
+a deposit for conversion.
+commit-a-deposit    </p>
+</div>
+<h3 id="deposit-state-monitoring">Deposit state monitoring<a class="headerlink" href="#deposit-state-monitoring" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><code>GET /api/deposits/{deposit_pk}/</code></p>
@@ -451,44 +1103,45 @@ you can start monitoring your deposit for result or error(s).</p>
 <p class="admonition-title">Hint</p>
 <p>See details of <a href="#deposit-model">Deposit model</a>.</p>
 </div>
-<p>The main target of you interest is a <code>state</code> property in the <code>deposit</code>.</p>
-<p>If you see the <code>state</code> of a <code>deposit</code> with value <code>NO_RESULT</code> you should check 
-the value of the property <code>details</code>. Where you can find an error encountered 
-at the time of conversion. In case if error is not clear, contact PMC group. 
-In some cases the error could be a temporary glitch, in such case 
+<p>The main target of your interest is a <code>state</code> property in the <code>deposit</code>.</p>
+<h4 id="state-no_result">State <code>NO_RESULT</code><a class="headerlink" href="#state-no_result" title="Permanent link">&para;</a></h4>
+<p>If you see the <code>state</code> of a <code>deposit</code> with value <code>NO_RESULT</code> you should check the value of the property <code>details</code>. Where you can find an error encountered at the time of conversion. In case if the error is not clear, contact PMC group. 
+In some cases, the error could be a temporary glitch, in such case 
 you can retry the conversion with <code>retry</code> action.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><code>PUT</code> <code>/api/deposits/{deposit_pk}/retry/</code> </p>
 </div>
-<p>If you see the <code>state</code> of a <code>deposit</code> with value <code>EXPIRED</code> than there is nothing 
-you can do with this deposit, even if result was created at some point. 
-Objects stored in S3 bucket have an expiration time. But you can create 
-a new deposit if necessary.</p>
-<h4 id="deposit-result">Deposit result</h4>
-<p>When you see the value of the state as <code>RESULT_IS_READY</code>, next step is search 
-for an <code>item</code> where property <code>result</code> == <code>true</code>. When you found it 
-you should grab the value of the property <code>s3_get_url</code> of that item 
-and use it to download your PDF. That URL has an expiration time of 3600 seconds, 
-if for some reason you did not succeed in that period, just refetch 
+<h4 id="state-result_is_ready">State <code>RESULT_IS_READY</code><a class="headerlink" href="#state-result_is_ready" title="Permanent link">&para;</a></h4>
+<p>When you see the value of the state as <code>RESULT_IS_READY</code>, 
+the next step is to search for an <code>item</code> where property <code>result</code> == <code>true</code>. 
+When you found it  you should grab the value of 
+the property <code>s3_get_url</code> of that item and use it to download 
+your PDF. That URL has an expiration time of 3600 seconds, 
+if for some reason you did not succeed in that period, just re-fetch 
 the deposit <code>deposit_pk</code> again and use the new value of <code>s3_get_url</code> property.</p>
-<h4 id="deposit-states-diagram">Deposit states diagram</h4>
+<h4 id="state-expired">State <code>EXPIRED</code><a class="headerlink" href="#state-expired" title="Permanent link">&para;</a></h4>
+<p>If you see the <code>state</code> of a <code>deposit</code> with value <code>EXPIRED</code> than there is nothing you can do with this deposit, even if a result was created at some point. 
+Objects stored in the S3 bucket have an expiration time, 
+therefore the deposits have it too. 
+But you can create a new deposit if necessary.</p>
+<h3 id="deposit-states-diagram">Deposit states diagram<a class="headerlink" href="#deposit-states-diagram" title="Permanent link">&para;</a></h3>
 <p>The state of the deposit is available in <code>state</code> property of each deposit. 
 You can check all the supported states in the following deposit states diagram:</p>
 <p><img alt="Deposit states diagram" src="fsm_diagrams/deposit_fsm.svg" title="Deposit states diagram" /></p>
 <p>and applicable actions to each state as the following endpoint 
 <code>/api/deposits/{deposit_pk}/{action}/</code>, which could be applied 
 with HTTP <code>PUT</code> request.</p>
-<h4 id="deposit-is-ready">Deposit is ready</h4>
+<h3 id="deposit-is-ready">Deposit is ready<a class="headerlink" href="#deposit-is-ready" title="Permanent link">&para;</a></h3>
 <p>When the <code>state</code> of the deposit would become <code>RESULT_IS_READY</code> you can 
 look into the <code>items</code> property and iterate over to find the one with 
 property <code>result</code> and value <code>true</code>. There must be a <code>s3_get_url</code> property, 
 which you can use to download your PDF file from NCBI's S3 storage 
 bucket (using HTTP <code>GET</code> method).</p>
-<h4 id="conversion-failed">Conversion failed</h4>
+<h3 id="conversion-failed">Conversion failed<a class="headerlink" href="#conversion-failed" title="Permanent link">&para;</a></h3>
 <p>When the <code>state</code> property value of the <code>deposit</code> would become <code>NO_RESULT</code> 
 you may find the details of that state in <code>details</code> property.</p>
-<h3 id="item">Item</h3>
+<h2 id="item">Item<a class="headerlink" href="#item" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Create</p>
 <p><code>POST /api/deposits/{deposit_pk}/items/</code></p>
@@ -498,46 +1151,55 @@ After that you can create your item(s) by sending <code>POST</code> HTTP request
 (as many as the number of items) 
 to the following endpoint <code>/api/deposita/{deposit_pk}/items</code> 
 to create each <code>item</code>.</p>
-<h4 id="item-model">Item model</h4>
-<pre><code>{
+<h3 id="item-model">Item model<a class="headerlink" href="#item-model" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{
   result: boolean,
   *item*: string,
   *item_size*: integer,  
   *depositor*: string,
-  %created%: iso-8601-time-date-string,
-  %updated%: iso-8601-time-date-string,
-  %s3_head_url%: string,
-  %s3_get_url%: string,
-  %s3_put_url%: string,
-  %item_type%: string,
-  %item_id%: string,
-  %state%: string,
+  #created#: iso-8601-time-date-string,
+  #updated#: iso-8601-time-date-string,
+  #s3_head_url#: string,
+  #s3_get_url#: string,
+  #s3_put_url#: string,
+  #item_type#: string,
+  #item_id#: string,
+  #state#: string,
 }
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Properties in model above, enclosed into <code>*</code> (asterisks) are mandatory,<br />
-enclosed into <code>%</code> are readonly and should be in your requests.</p>
+<p>Properties in the model above, enclosed into <code>*</code> (asterisks) are mandatory,<br />
+enclosed into <code>#</code> are read-only and should be in your requests.</p>
 </div>
-<div class="admonition note">
+<div class="admonition detail">
+<p class="admonition-title">Detail</p>
 <ul>
-<li><code>result</code> - a boolean property, which indicates, that the item is the 
-result of conversion.</li>
+<li><code>result</code> - a boolean property, which indicates, that the item is the result of a conversion.</li>
 <li><code>item</code> - a string which represents/holds a file name or URL of <strong>deposit</strong>.</li>
 <li><code>item_size</code> - a size of the item/file in bytes.</li>
 <li><code>depositor</code> - an abbreviation of the depositor.</li>
-<li><code>created</code> - time of creation of the item. </li>
+<li><code>created</code> - the time of creation of the item. </li>
 <li><code>updated</code> - time of the last update of the item.</li>
-<li><code>s3_put_url</code> - property is applicable when depositor intention was to 
-deposit file to Amazon S3 storage controlled by NCBI. The value of this 
-property (URL) will be regenerated with new expiration time, every time, when 
-depositor access a deposit with "deposit_pk" or item with "item_pk". It will 
-not be present if depositor provided a retrievable URL. <strong>s3_put_url</strong> value is 
+<li><code>s3_put_url</code> - property is applicable when depositor intention was to deposit file to Amazon S3 storage controlled by NCBI. The value of this property (URL) will be regenerated with a new expiration time, every time, when depositor access a deposit with "deposit_pk" or item with "item_pk". It will not be present if the depositor provided a retrievable URL. <strong>s3_put_url</strong> value is 
 suitable to be used with method PUT when the file suppose to be uploaded to 
 Amazon S3 storage.</li>
-<li><code>s3_get_url</code> - populated with retrievable URL if it was provided by 
-depositor or with signed URL if depositor uploaded a file to Amazon S3 storage. 
+<li><code>s3_get_url</code> - populated with retrievable URL if it was provided by the depositor or with signed URL if depositor uploaded a file to Amazon S3 storage. 
 This URL is suitable to be used with method GET when the file is uploaded to 
 Amazon S3 storage (<strong>s3_get_url</strong> is needed for <strong>jats2pdf-back-office</strong> back-end 
 service).</li>
@@ -550,64 +1212,93 @@ service).</li>
 <li><code>state</code> - - <code>state</code> - a machine-readable item state, see <a href="#item-states-diagram">diagram</a>.</li>
 </ul>
 </div>
-<h4 id="item-states-diagram">Item states diagram</h4>
+<h3 id="item-states-diagram">Item states diagram<a class="headerlink" href="#item-states-diagram" title="Permanent link">&para;</a></h3>
 <p>The state of the deposit is available in <code>state</code> property of each deposit. 
 You can check all the supported states in the following deposit states diagram:</p>
 <p><img alt="Item states diagram" src="fsm_diagrams/item_fsm.svg" title="Deposit states diagram" /></p>
 <p>and applicable actions to each state as the following endpoint 
 <code>/api/deposits/{deposit_pk}/items/{item_pk}/{action}/</code>, which could be applied 
 with HTTP <code>PUT</code> request.</p>
-<h3 id="auto-generated-states-diagram">Auto-generated states diagram</h3>
+<h2 id="auto-generated-states-diagram">Auto-generated states diagram<a class="headerlink" href="#auto-generated-states-diagram" title="Permanent link">&para;</a></h2>
 <p><img alt="Autogenerated diagram" src="fsm_diagrams/django_fsm_diagram.svg" title="Autogenerated diagram" /></p>
-<hr />
+                
+                  
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="2README-API-USE-EXAMPLES.html" class="btn btn-neutral float-right" title="API use examples">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="0README.html" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="0README.html" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Introduction
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="2README-API-USE-EXAMPLES.html" title="Use examples" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Use examples
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
   </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="assets/javascripts/application.583bbe55.js"></script>
       
-          <a href="https://bitbucket.ncbi.nlm.nih.gov/projects/PMC/repos/jats2pdf/browse/" class="icon icon-bitbucket" style="float: left; color: #fcfcfc"> BitBucket</a>
+      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
       
+    
+    
       
-        <span><a href="0README.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="2README-API-USE-EXAMPLES.html" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
-
-</body>
+    
+  </body>
 </html>
