@@ -835,9 +835,8 @@ and accepts data in <code>JSON</code> format. </p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>It is highly suggested to read a useful details on HTTP verbs, 
-HTTP response codes (and so on ...) supported by this API on this page 
-<a href="https://www.restapitutorial.com/lessons/httpmethods.html">https://www.restapitutorial.com/lessons/httpmethods.html</a></p>
+<p>It is highly suggested to read a useful details
+on <a href="https://www.restapitutorial.com/lessons/httpmethods.html">HTTP verbs</a> and on <a href="https://www.restapitutorial.com/httpstatuscodes.html">HTTP response codes</a> suitable for this API.</p>
 </div>
 <h2 id="definitions">Definitions<a class="headerlink" href="#definitions" title="Permanent link">&para;</a></h2>
 <div class="admonition detail">
@@ -926,6 +925,17 @@ to interact with a service.</p>
 </div>
 <p>The service supports many other actions, but they are not considered typical 
 for the consumers.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Error handling on the client side expected to correspond
+to <a href="https://www.restapitutorial.com/httpstatuscodes.html">HTTP response codes</a>.
+The content you may see in HTTP body in <code>JSON</code> or other formats
+may be useful during development of your client.
+Possibly the <code>details</code> property from the response body
+could be useful if delivered.
+It could be sometime cryptic for end-user to interpret
+the source of the problem.</p>
+</div>
 <h2 id="deposit">Deposit<a class="headerlink" href="#deposit" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Create</p>
