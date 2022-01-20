@@ -747,32 +747,32 @@
 <p>For each article, the service requires:</p>
 <ol>
 <li>
-<p>An article XML file that is well-formed and valid according to the NLM 
-Journal Publishing or Archiving DTD version 2.3 or 3.0 or to the NISO 
-JATSJournal Publishing or Archiving DTD version 1.0 or 1.1. </p>
+<p>An article XML file that is well-formed and valid according to the NLM
+Journal Publishing or Archiving DTD version 2.3 or 3.0 or to the NISO
+JATSJournal Publishing or Archiving DTD version 1.0 or 1.1.</p>
 </li>
 <li>
-<p>Images referenced in the article XML file must be supplied in TIFF format 
-with ".tif" extension (although the image references in the graphic/@xlink:href 
+<p>Images referenced in the article XML file must be supplied in TIFF format
+with ".tif" extension (although the image references in the graphic/@xlink:href
 might not include the file extension).</p>
 </li>
 <li>
-<p>Also, the PMC known domain name may be supplied for output styling/branding. 
-If a domain name is not supplied within an XML, a general HHS style will be used. 
-If you need the output to be styled differently from what currently supported, 
+<p>Also, the PMC known domain name may be supplied for output styling/branding.
+If a domain name is not supplied within an XML, a general HHS style will be used.
+If you need the output to be styled differently from what currently supported,
 please make an inquiry.</p>
 </li>
 <li>
-<p>A <code>domain</code> the article belongs to. (Branding and rendering could be specific 
+<p>A <code>domain</code> the article belongs to. (Branding and rendering could be specific
 for each domain.). If the <code>domain</code> of your interest is not supported yet, then contact PMC group.</p>
 </li>
 <li>
-<p>Depositor name. </p>
+<p>Depositor name.</p>
 </li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Currently, the implementation supports branding/styling based on XML PIs: </p>
+<p>Currently, the implementation supports branding/styling based on XML PIs:</p>
 <p><div class="highlight"><pre><span></span><code><span class="nt">&lt;article&gt;</span>
     <span class="cp">&lt;?domain ...?&gt;</span>
 <span class="nt">&lt;/article&gt;</span>
@@ -783,24 +783,25 @@ or
 <span class="nt">&lt;/article&gt;</span>
 </code></pre></div>
 If they both are missing the generic HHS branding will be applied.
-In the future the domain supplied with your request 
+In the future the domain supplied with your request
 to create a <code>deposit</code> will take precedece over above PIs.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>PMC conversion group needs to investigate if images other than the tiffs 
+<p>PMC conversion group needs to investigate if images other than the tiffs
 are currently expected in XSL code.</p>
 </div>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>The production API endpoint is available at 
-<a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/api/">https://api.ncbi.nlm.nih.gov/lit/jats2pdf/api/</a>. </p>
-<p>Also, there is a starting/home page of the service available at 
-<a href="https://dev.ncbi.nlm.nih.gov/lit/jats2pdf/">https://dev.ncbi.nlm.nih.gov/lit/jats2pdf/</a>. </p>
+<p>The production API endpoint is available at
+<a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/api/">https://api.ncbi.nlm.nih.gov/lit/jats2pdf/api/</a>.</p>
+<p>Also, there is a starting/home page of the service available at
+<a href="https://dev.ncbi.nlm.nih.gov/lit/jats2pdf/">https://dev.ncbi.nlm.nih.gov/lit/jats2pdf/</a>.</p>
 <p>Other links:</p>
 <ul>
-<li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/swagger/">API Swagger page</a> </li>
+<li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/swagger/">API Swagger page</a></li>
 <li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/swagger/?format=openapi">API Swagger OpenApi specs</a></li>
-<li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/admin/">Admin page</a>. </li>
+<li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/redoc/">API Redoc page</a></li>
+<li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/admin/">Admin page</a>.</li>
 <li><a href="https://api.ncbi.nlm.nih.gov/lit/jats2pdf/version/">Check the version of application</a></li>
 </ul>
 <p>The following entities of the API are available for consumers:</p>
@@ -812,9 +813,9 @@ are currently expected in XSL code.</p>
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>This service currently supports interactive requests with the browser 
-of your choice and with your custom application, which sends 
-and accepts data in <code>JSON</code> format. </p>
+<p>This service currently supports interactive requests with the browser
+of your choice and with your custom application, which sends
+and accepts data in <code>JSON</code> format.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -826,65 +827,65 @@ on <a href="https://www.restapitutorial.com/lessons/httpmethods.html">HTTP verbs
 <p class="admonition-title">Detail</p>
 <ul>
 <li>
-<p><code>depositor</code> - the consumer of this web service (later, 
-a login from credentials will be used instead), 
+<p><code>depositor</code> - the consumer of this web service (later,
+a login from credentials will be used instead),
 currently used for self-identification.</p>
 </li>
 <li>
-<p><code>domain</code> - the name to be used in the future for manuscript branding 
-and processes applied by the <strong>jats2pdf-back-office</strong> scripts. Currently, 
-the PI &lt;?domain ...?&gt; or &lt;?origin ...?&gt; from XML itself is used for that. 
-But you have to provide this property in your requests 
+<p><code>domain</code> - the name to be used in the future for manuscript branding
+and processes applied by the <strong>jats2pdf-back-office</strong> scripts. Currently,
+the PI &lt;?domain ...?&gt; or &lt;?origin ...?&gt; from XML itself is used for that.
+But you have to provide this property in your requests
 for future compatibility.</p>
 </li>
 <li>
-<p><code>deposit</code> - set of files (aka <strong>items</strong>) to be used in conversion. 
-All files in deposit must have unique names. 
-Only one manuscript XML file must be present. 
-All other files expected are images for figures, 
-tables (if no native tables available), equations if applicable. 
-The <strong>deposit</strong> could be provided as a single 
-or multiple archive file(s) (in .zip, .tar, .tar.gz or .tgz formats) 
-which includes an XML file with all image files it depends on 
-Or as uncompressed/unarchived individual files. 
-Each file of the deposit is called an <strong>item</strong>, 
+<p><code>deposit</code> - set of files (aka <strong>items</strong>) to be used in conversion.
+All files in deposit must have unique names.
+Only one manuscript XML file must be present.
+All other files expected are images for figures,
+tables (if no native tables available), equations if applicable.
+The <strong>deposit</strong> could be provided as a single
+or multiple archive file(s) (in .zip, .tar, .tar.gz or .tgz formats)
+which includes an XML file with all image files it depends on
+Or as uncompressed/unarchived individual files.
+Each file of the deposit is called an <strong>item</strong>,
 see definition of <strong>item</strong> below.</p>
 </li>
 <li>
-<p><code>item</code> - is an entity of this service which represents a file (name) 
-or URL behind a file. All <strong>items</strong> together constitute a <strong>deposit</strong> 
-to be used in the conversion process to PDF document.  </p>
+<p><code>item</code> - is an entity of this service which represents a file (name)
+or URL behind a file. All <strong>items</strong> together constitute a <strong>deposit</strong>
+to be used in the conversion process to PDF document.</p>
 </li>
 <li>
-<p><code>deposit_pk</code> - the service generated identifier of a <strong>deposit</strong> 
+<p><code>deposit_pk</code> - the service generated identifier of a <strong>deposit</strong>
 (also called as <strong>deposit_id</strong>).</p>
 </li>
 <li>
-<p><code>item_pk</code> - the service generated identifier of an <strong>item</strong> 
+<p><code>item_pk</code> - the service generated identifier of an <strong>item</strong>
 (also called as <strong>item_id</strong>).</p>
 </li>
 </ul>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>When an <strong>item</strong> is a file, it has to be uploaded to NCBI's S3 
-storage bucket by consumer separately. When an <strong>item</strong> is an URL 
-starting with "http://" or "https://" sub-strings then 
-the <strong>jats2pdf-back-office</strong> component must be able to access 
-files behind the URLs from storage of consumer's choice. </p>
+<p>When an <strong>item</strong> is a file, it has to be uploaded to NCBI's S3
+storage bucket by consumer separately. When an <strong>item</strong> is an URL
+starting with "http://" or "https://" sub-strings then
+the <strong>jats2pdf-back-office</strong> component must be able to access
+files behind the URLs from storage of consumer's choice.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Files compressed with various utilities 
-(producing .tar, .bz2,  .tar.bz2, .tgz, .zip, 
+<p>Files compressed with various utilities
+(producing .tar, .bz2,  .tar.bz2, .tgz, .zip,
 .7z, .tar.Z, .rar formats) are <del>not</del> supported <del>yet</del>.</p>
 </div>
 <h2 id="api-interactions">API Interactions<a class="headerlink" href="#api-interactions" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you want to receive and send your data in json format use the following 
-headers: <code>Content-Type: application/json</code> and <code>Accept: application/json</code> in 
-your HTTP requests. </p>
+<p>If you want to receive and send your data in json format use the following
+headers: <code>Content-Type: application/json</code> and <code>Accept: application/json</code> in
+your HTTP requests.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -894,7 +895,7 @@ your HTTP requests. </p>
 <p class="admonition-title">Warning</p>
 <p>Not all forms work properly, unfortunately.</p>
 </div>
-<p>The following steps (in plain words) could be considered as a typical scenario 
+<p>The following steps (in plain words) could be considered as a typical scenario
 to interact with a service.</p>
 <div class="admonition detail">
 <p class="admonition-title">Detail</p>
@@ -906,7 +907,7 @@ to interact with a service.</p>
 <li><a href="#deposit-result">Fetch a result</a> if generated.</li>
 </ul>
 </div>
-<p>The service supports many other actions, but they are not considered typical 
+<p>The service supports many other actions, but they are not considered typical
 for the consumers.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -927,18 +928,18 @@ the source of the problem.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To create a deposit you need to send a <code>POST</code> request to <code>/api/deposits/</code> 
-endpoint. Based on your desire and ability to provide your files inform 
-of URLs or files, you may proceed to one of the following sections 
-<a href="#url-items">URL items</a>, <a href="#file-items">File items</a>, <a href="#mixed-items">Mixed items</a> 
-or even with <a href="#no-items">No items</a> (do not worry you can supply items later 
+<p>To create a deposit you need to send a <code>POST</code> request to <code>/api/deposits/</code>
+endpoint. Based on your desire and ability to provide your files inform
+of URLs or files, you may proceed to one of the following sections
+<a href="#url-items">URL items</a>, <a href="#file-items">File items</a>, <a href="#mixed-items">Mixed items</a>
+or even with <a href="#no-items">No items</a> (do not worry you can supply items later
 in subsequent requests).</p>
 </div>
 <h3 id="deposit-model">Deposit Model<a class="headerlink" href="#deposit-model" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>{
-  action: string,      
+  action: string,
   items: [
-    $item, $item, ... 
+    $item, $item, ...
   ],
   details: string,
   *depositor*: string,
@@ -951,7 +952,7 @@ in subsequent requests).</p>
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Properties in the model above, enclosed into <code>*</code> (asterisks) are mandatory,<br />
+<p>Properties in the model above, enclosed into <code>*</code> (asterisks) are mandatory,
 enclosed into <code>#</code> are read-only and should be in your requests.</p>
 </div>
 <div class="admonition note">
@@ -965,18 +966,18 @@ enclosed into <code>#</code> are read-only and should be in your requests.</p>
 <li><code>deposit_id</code> - a deposit unique identifier.</li>
 <li><code>depositor</code> - see explanations in <a href="#definitions">Definitions</a> section.</li>
 <li><code>domain</code> - see explanations in <a href="#definitions">Definitions</a> section.</li>
-<li><code>state</code> - a machine-readable deposit state, see <a href="#deposit-states-diagram">diagram</a>. </li>
+<li><code>state</code> - a machine-readable deposit state, see <a href="#deposit-states-diagram">diagram</a>.</li>
 <li><code>created</code> - time of creation of the deposit.</li>
 <li><code>updated</code> - time of the last update of the deposit.</li>
-<li><code>items</code> - an array of deposit items, see explanations of item in 
+<li><code>items</code> - an array of deposit items, see explanations of item in
 <a href="#definitions">Definitions</a> section.</li>
 </ul>
 </div>
 <h3 id="deposit-actions">Deposit Actions<a class="headerlink" href="#deposit-actions" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>the following actions could be used as values of <code>action</code> property 
-in <a href="#deposit-model">deposit model</a> or could be used with <code>PUT</code> requests 
+<p>the following actions could be used as values of <code>action</code> property
+in <a href="#deposit-model">deposit model</a> or could be used with <code>PUT</code> requests
 to the endpoints <code>/api/deposits/{deposit_pk}/{action}/</code></p>
 </div>
 <div class="admonition details">
@@ -992,20 +993,20 @@ to the endpoints <code>/api/deposits/{deposit_pk}/{action}/</code></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Action value <code>commit</code> would make sense 
-at the time of the new <code>deposit</code> creation for URL items. 
-Not all actions are possible at a given state, 
+<p>Action value <code>commit</code> would make sense
+at the time of the new <code>deposit</code> creation for URL items.
+Not all actions are possible at a given state,
 see <a href="#deposit-states-diagram">Deposit states diagram</a> below
-to understand the possible transitions. </p>
+to understand the possible transitions.</p>
 </div>
 <h3 id="url-items">URL items<a class="headerlink" href="#url-items" title="Permanent link">&para;</a></h3>
-<p>You can use the following model for your requests. 
-See <a href="2README-API-USE-EXAMPLES.html#deposit-url-items">an example</a> of such 
+<p>You can use the following model for your requests.
+See <a href="2README-API-USE-EXAMPLES.html#deposit-url-items">an example</a> of such
 request on a separate page.</p>
 <div class="highlight"><pre><span></span><code>{
-  action: string,      
+  action: string,
   items: [
-    $item, $item, ... 
+    $item, $item, ...
   ],
   *depositor*: string,
   *domain*: string,
@@ -1013,19 +1014,19 @@ request on a separate page.</p>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When you supply your <code>deposit</code> to the service with URL(s) it is recommended 
-to prepare and make available your file(s) ahead of time, 
-that you can use <code>action</code> property with value "commit" 
-to initiate processing of your deposit at the time of your request 
-when you create a deposit.     </p>
+<p>When you supply your <code>deposit</code> to the service with URL(s) it is recommended
+to prepare and make available your file(s) ahead of time,
+that you can use <code>action</code> property with value "commit"
+to initiate processing of your deposit at the time of your request
+when you create a deposit.</p>
 </div>
 <h3 id="file-items">File Items<a class="headerlink" href="#file-items" title="Permanent link">&para;</a></h3>
-<p>You can use the following model for your requests. 
-See <a href="2README-API-USE-EXAMPLES.html#deposit-file-items">an example</a> of such 
+<p>You can use the following model for your requests.
+See <a href="2README-API-USE-EXAMPLES.html#deposit-file-items">an example</a> of such
 request on a separate page.</p>
 <div class="highlight"><pre><span></span><code>{
   items: [
-    $item, $item, ... 
+    $item, $item, ...
   ],
   *depositor*: string,
   *domain*: string
@@ -1033,37 +1034,37 @@ request on a separate page.</p>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When you supply your <code>deposit</code> to the service with File(s) in response you will 
-get <code>s3_put_url</code> property for each item, which you have to use within 1 hour to 
-upload your files to NCBI's S3 storage bucket with HTTP <code>PUT</code> requests. Here is 
-an example of using curl: <code>curl "${s3_put_url}" --upload-file an_article.xml</code>,<br />
+<p>When you supply your <code>deposit</code> to the service with File(s) in response you will
+get <code>s3_put_url</code> property for each item, which you have to use within 1 hour to
+upload your files to NCBI's S3 storage bucket with HTTP <code>PUT</code> requests. Here is
+an example of using curl: <code>curl "${s3_put_url}" --upload-file an_article.xml</code>,
 <code>curl "${s3_put_url}" --upload-file an_image1.tif</code>, ...;</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>Just in case if s3_put_url would expire, just go to 
-<code>/api/deposits/{deposit_pl}/items/{item_pk}/</code> and grab a new one. Or you can get 
+<p>Just in case if s3_put_url would expire, just go to
+<code>/api/deposits/{deposit_pl}/items/{item_pk}/</code> and grab a new one. Or you can get
 all items from <code>/api/deposits/{deposit_pk}/</code> at once.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>After you uploaded all your files to NCBI's S3 storage bucket you have to 
-commit your deposit for processing by sending an HTTP <code>PUT</code> request to 
-<code>/api/deposits/{deposit_pk}/commit/</code> endpoint. </p>
+<p>After you uploaded all your files to NCBI's S3 storage bucket you have to
+commit your deposit for processing by sending an HTTP <code>PUT</code> request to
+<code>/api/deposits/{deposit_pk}/commit/</code> endpoint.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>To speedup the processing of your deposit you can send HTTP 'PUT' request at 
-the following endpoint <code>/api/deposits/{deposit_pk}/items/{item_pk}/uploaded</code> 
+<p>To speedup the processing of your deposit you can send HTTP 'PUT' request at
+the following endpoint <code>/api/deposits/{deposit_pk}/items/{item_pk}/uploaded</code>
 after each successfully uploaded file to NCBI's S3 storage bucket.</p>
 </div>
 <h3 id="mixed-items">Mixed items<a class="headerlink" href="#mixed-items" title="Permanent link">&para;</a></h3>
-<p>This case should not be typical, but it still can be used. You can basically 
-follow the <a href="#file-items">File Items</a> model above with exception to items 
+<p>This case should not be typical, but it still can be used. You can basically
+follow the <a href="#file-items">File Items</a> model above with exception to items
 supplied as URL for those see <a href="#url-items">URL Items</a>.</p>
 <div class="highlight"><pre><span></span><code>{
   items: [
-    $item, $item, ... 
+    $item, $item, ...
   ],
   *depositor*: string,
   *domain*: string
@@ -1071,14 +1072,14 @@ supplied as URL for those see <a href="#url-items">URL Items</a>.</p>
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>After you uploaded all your files to NCBI's S3 storage bucket you have to 
-commit your deposit for processing by sending an HTTP <code>PUT</code> request to 
-<code>/api/deposits/{deposit_pk}/commit/</code> endpoint.  </p>
+<p>After you uploaded all your files to NCBI's S3 storage bucket you have to
+commit your deposit for processing by sending an HTTP <code>PUT</code> request to
+<code>/api/deposits/{deposit_pk}/commit/</code> endpoint.</p>
 </div>
 <h3 id="no-items">No items<a class="headerlink" href="#no-items" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This model of depositing your article for conversion is also possible, 
+<p>This model of depositing your article for conversion is also possible,
 but it would take more requests/response cycles.</p>
 </div>
 <div class="highlight"><pre><span></span><code>{
@@ -1086,13 +1087,13 @@ but it would take more requests/response cycles.</p>
   *domain*: string
 }
 </code></pre></div>
-<p>After a deposit was successfully created you have to create your item(s), 
+<p>After a deposit was successfully created you have to create your item(s),
 follow the section <a href="#item">Item creation</a></p>
 <h3 id="deposit-commit">Deposit commit<a class="headerlink" href="#deposit-commit" title="Permanent link">&para;</a></h3>
-<p>If your items are all URLs the <code>action</code> property could be used 
-with value <code>commit</code> at the time of <a href="#deposit">deposit creation</a> 
+<p>If your items are all URLs the <code>action</code> property could be used
+with value <code>commit</code> at the time of <a href="#deposit">deposit creation</a>
 (see above) to save you an extra request not to be made.</p>
-<p>But otherwise, you can commit your deposit to conversion (when all items 
+<p>But otherwise, you can commit your deposit to conversion (when all items
 are made available).</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1102,15 +1103,15 @@ are made available).</p>
 <p class="admonition-title">Note</p>
 <p><a href="2README-API-USE-EXAMPLES.html#commit-a-deposit">Here is an example</a> of committing
 a deposit for conversion.
-commit-a-deposit    </p>
+commit-a-deposit</p>
 </div>
 <h3 id="deposit-state-monitoring">Deposit state monitoring<a class="headerlink" href="#deposit-state-monitoring" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><code>GET /api/deposits/{deposit_pk}/</code></p>
 </div>
-<p>After successful creation of a deposit (a <code>deposit_id</code> was acquired, <code>items</code> 
-are uploaded where needed, and started the conversion with <code>commit</code> action) 
+<p>After successful creation of a deposit (a <code>deposit_id</code> was acquired, <code>items</code>
+are uploaded where needed, and started the conversion with <code>commit</code> action)
 you can start monitoring your deposit for result or error(s).</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -1118,69 +1119,69 @@ you can start monitoring your deposit for result or error(s).</p>
 </div>
 <p>The main target of your interest is a <code>state</code> property in the <code>deposit</code>.</p>
 <h4 id="state-no_result">State <code>NO_RESULT</code><a class="headerlink" href="#state-no_result" title="Permanent link">&para;</a></h4>
-<p>If you see the <code>state</code> of a <code>deposit</code> with value <code>NO_RESULT</code> 
-you should check the value of the property <code>details</code>. 
-Where you can find an error encountered at the time of conversion. 
-In case if the error is not clear, contact PMC group. 
-In some cases, the error could be a temporary glitch, in such case 
+<p>If you see the <code>state</code> of a <code>deposit</code> with value <code>NO_RESULT</code>
+you should check the value of the property <code>details</code>.
+Where you can find an error encountered at the time of conversion.
+In case if the error is not clear, contact PMC group.
+In some cases, the error could be a temporary glitch, in such case
 you can retry the conversion with <code>retry</code> action.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><code>PUT</code> <code>/api/deposits/{deposit_pk}/retry/</code> </p>
+<p><code>PUT</code> <code>/api/deposits/{deposit_pk}/retry/</code></p>
 </div>
 <h4 id="state-result_is_ready">State <code>RESULT_IS_READY</code><a class="headerlink" href="#state-result_is_ready" title="Permanent link">&para;</a></h4>
-<p>When you see the value of the state as <code>RESULT_IS_READY</code>, 
-the next step is to search for an <code>item</code> where property <code>result</code> == <code>true</code>. 
-When you found it  you should grab the value of 
-the property <code>s3_get_url</code> of that item and use it to download 
-your PDF. That URL has an expiration time of 3600 seconds, 
-if for some reason you did not succeed in that period, just re-fetch 
+<p>When you see the value of the state as <code>RESULT_IS_READY</code>,
+the next step is to search for an <code>item</code> where property <code>result</code> == <code>true</code>.
+When you found it  you should grab the value of
+the property <code>s3_get_url</code> of that item and use it to download
+your PDF. That URL has an expiration time of 3600 seconds,
+if for some reason you did not succeed in that period, just re-fetch
 the deposit <code>deposit_pk</code> again and use the new value of <code>s3_get_url</code> property.</p>
 <h4 id="state-expired">State <code>EXPIRED</code><a class="headerlink" href="#state-expired" title="Permanent link">&para;</a></h4>
-<p>If you see the <code>state</code> of a <code>deposit</code> with value <code>EXPIRED</code> 
-than there is nothing you can do with this deposit, 
-even if a result was created at some point. 
-Objects stored in the S3 bucket have an expiration time, 
-therefore the deposits have it too. 
+<p>If you see the <code>state</code> of a <code>deposit</code> with value <code>EXPIRED</code>
+than there is nothing you can do with this deposit,
+even if a result was created at some point.
+Objects stored in the S3 bucket have an expiration time,
+therefore the deposits have it too.
 But you can create a new deposit if necessary.</p>
 <h4 id="state-waiting_for_upload">State <code>WAITING_FOR_UPLOAD</code><a class="headerlink" href="#state-waiting_for_upload" title="Permanent link">&para;</a></h4>
-<p>This state is usually assigned for newly created deposit with <code>FILE</code> items. 
+<p>This state is usually assigned for newly created deposit with <code>FILE</code> items.
 It is assigned when you <code>reopen</code> the deposit to add new items if needed.
-And finally, it could be assigned by <code>jats2pdf-back-office</code> component when 
+And finally, it could be assigned by <code>jats2pdf-back-office</code> component when
 a deposit was committed but for some reason not all <code>FILE</code> items are available.
 In this case check <code>details</code> property value for possible Exception at the time of checking.</p>
 <h3 id="deposit-states-diagram">Deposit states diagram<a class="headerlink" href="#deposit-states-diagram" title="Permanent link">&para;</a></h3>
-<p>The state of the deposit is available in <code>state</code> property of each deposit. 
-You can check all the supported states in the following deposit states diagram 
+<p>The state of the deposit is available in <code>state</code> property of each deposit.
+You can check all the supported states in the following deposit states diagram
 (in svg format):</p>
 <p><img alt="Deposit states diagram" src="fsm_diagrams/deposit_fsm.svg" title="Deposit states diagram" /></p>
-<p>and applicable actions to each state as the following endpoint 
-<code>/api/deposits/{deposit_pk}/{action}/</code>, which could be applied 
+<p>and applicable actions to each state as the following endpoint
+<code>/api/deposits/{deposit_pk}/{action}/</code>, which could be applied
 with HTTP <code>PUT</code> request.</p>
 <h3 id="deposit-is-ready">Deposit is ready<a class="headerlink" href="#deposit-is-ready" title="Permanent link">&para;</a></h3>
-<p>When the <code>state</code> of the deposit would become <code>RESULT_IS_READY</code> you can 
-look into the <code>items</code> property and iterate over to find the one with 
-property <code>result</code> and value <code>true</code>. There must be a <code>s3_get_url</code> property, 
-which you can use to download your PDF file from NCBI's S3 storage 
+<p>When the <code>state</code> of the deposit would become <code>RESULT_IS_READY</code> you can
+look into the <code>items</code> property and iterate over to find the one with
+property <code>result</code> and value <code>true</code>. There must be a <code>s3_get_url</code> property,
+which you can use to download your PDF file from NCBI's S3 storage
 bucket (using HTTP <code>GET</code> method).</p>
 <h3 id="conversion-failed">Conversion failed<a class="headerlink" href="#conversion-failed" title="Permanent link">&para;</a></h3>
-<p>When the <code>state</code> property value of the <code>deposit</code> would become <code>NO_RESULT</code> 
+<p>When the <code>state</code> property value of the <code>deposit</code> would become <code>NO_RESULT</code>
 you may find the details of that state in <code>details</code> property.</p>
 <h2 id="item">Item<a class="headerlink" href="#item" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Create</p>
 <p><code>POST /api/deposits/{deposit_pk}/items/</code></p>
 </div>
-<p>To create an item you should create a deposit first and acquire a <code>deposit_id</code>. 
-After that you can create your item(s) by sending <code>POST</code> HTTP request 
-(as many as the number of items) 
-to the following endpoint <code>/api/deposita/{deposit_pk}/items</code> 
+<p>To create an item you should create a deposit first and acquire a <code>deposit_id</code>.
+After that you can create your item(s) by sending <code>POST</code> HTTP request
+(as many as the number of items)
+to the following endpoint <code>/api/deposita/{deposit_pk}/items</code>
 to create each <code>item</code>.</p>
 <h3 id="item-model">Item model<a class="headerlink" href="#item-model" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>{
   result: boolean,
   *item*: string,
-  *item_size*: integer,  
+  *item_size*: integer,
   *depositor*: string,
   #created#: iso-8601-time-date-string,
   #updated#: iso-8601-time-date-string,
@@ -1194,7 +1195,7 @@ to create each <code>item</code>.</p>
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Properties in the model above, enclosed into <code>*</code> (asterisks) are mandatory,<br />
+<p>Properties in the model above, enclosed into <code>*</code> (asterisks) are mandatory,
 enclosed into <code>#</code> are read-only and should be in your requests.</p>
 </div>
 <div class="admonition detail">
@@ -1204,42 +1205,42 @@ enclosed into <code>#</code> are read-only and should be in your requests.</p>
 <li><code>item</code> - a string which represents/holds a file name or URL of <strong>deposit</strong>.</li>
 <li><code>item_size</code> - a size of the item/file in bytes. Current limits are 10Mibs for regular items and 50Mib for result items.</li>
 <li><code>depositor</code> - an abbreviation of the depositor.</li>
-<li><code>created</code> - the time of creation of the item. </li>
+<li><code>created</code> - the time of creation of the item.</li>
 <li><code>updated</code> - time of the last update of the item.</li>
-<li><code>s3_put_url</code> - property is applicable 
-when depositor intention was to deposit file to Amazon S3 storage 
-controlled by NCBI. The value of this property (URL) 
-will be regenerated with a new expiration time, every time, 
-when depositor access a deposit with "deposit_pk" 
-or item with "item_pk". It will not be present 
-if the depositor provided a retrievable URL. 
-<strong>s3_put_url</strong> value is suitable to be used 
-with method PUT when the file suppose to be uploaded to 
+<li><code>s3_put_url</code> - property is applicable
+when depositor intention was to deposit file to Amazon S3 storage
+controlled by NCBI. The value of this property (URL)
+will be regenerated with a new expiration time, every time,
+when depositor access a deposit with "deposit_pk"
+or item with "item_pk". It will not be present
+if the depositor provided a retrievable URL.
+<strong>s3_put_url</strong> value is suitable to be used
+with method PUT when the file suppose to be uploaded to
 Amazon S3 storage.</li>
-<li><code>s3_get_url</code> - populated with retrievable URL if 
-it was provided by the depositor or with signed URL 
-if depositor uploaded a file to Amazon S3 storage. 
-This URL is suitable to be used with method GET when the file is uploaded to 
-Amazon S3 storage (<strong>s3_get_url</strong> is needed for <strong>jats2pdf-back-office</strong> back-end 
+<li><code>s3_get_url</code> - populated with retrievable URL if
+it was provided by the depositor or with signed URL
+if depositor uploaded a file to Amazon S3 storage.
+This URL is suitable to be used with method GET when the file is uploaded to
+Amazon S3 storage (<strong>s3_get_url</strong> is needed for <strong>jats2pdf-back-office</strong> back-end
 service).</li>
-<li><code>s3_head_url</code> - populated with URL of a item/file uploaded 
-to Amazon S3 storage. 
-This URL is suitable to be used with method HEAD when the file is uploaded to 
-Amazon S3 storage (<strong>s3_get_url</strong> is needed for <strong>jats2pdf-back-office</strong> back-end 
+<li><code>s3_head_url</code> - populated with URL of a item/file uploaded
+to Amazon S3 storage.
+This URL is suitable to be used with method HEAD when the file is uploaded to
+Amazon S3 storage (<strong>s3_get_url</strong> is needed for <strong>jats2pdf-back-office</strong> back-end
 service).</li>
-<li><code>item_type</code> - <strong>FILE</strong> or <strong>URL</strong> </li>
+<li><code>item_type</code> - <strong>FILE</strong> or <strong>URL</strong></li>
 <li><code>item_id</code> - an item unique identifier.</li>
-<li><code>state</code> - - <code>state</code> - a machine-readable item state, 
+<li><code>state</code> - - <code>state</code> - a machine-readable item state,
 see <a href="#item-states-diagram">diagram</a>.</li>
 </ul>
 </div>
 <h3 id="item-states-diagram">Item states diagram<a class="headerlink" href="#item-states-diagram" title="Permanent link">&para;</a></h3>
-<p>The state of the deposit is available in <code>state</code> property of each deposit. 
-You can check all the supported states 
+<p>The state of the deposit is available in <code>state</code> property of each deposit.
+You can check all the supported states
 in the following deposit states diagram (in svg format):</p>
 <p><img alt="Item states diagram" src="fsm_diagrams/item_fsm.svg" title="Deposit states diagram" /></p>
-<p>and applicable actions to each state as the following endpoint 
-<code>/api/deposits/{deposit_pk}/items/{item_pk}/{action}/</code>, which could be applied 
+<p>and applicable actions to each state as the following endpoint
+<code>/api/deposits/{deposit_pk}/items/{item_pk}/{action}/</code>, which could be applied
 with HTTP <code>PUT</code> request.</p>
 <h2 id="auto-generated-diagram">Auto-generated diagram<a class="headerlink" href="#auto-generated-diagram" title="Permanent link">&para;</a></h2>
 <p>Auto-generated states diagram (in svg format):</p>
@@ -1309,7 +1310,7 @@ with HTTP <code>PUT</code> request.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.22074ed6.min.js", "version": "0.2.3"}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.22074ed6.min.js", "version": "0.3.1"}</script>
     
     
       <script src="assets/javascripts/bundle.1514a9a0.min.js"></script>
